@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+.a01 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  border: 1px solid var(--Claro-Bordas-01, #d8e0f0);
+  border-radius: 10px;
+  background: var(--Claro-Fundo-01, #f4f4f4);
+  padding: 10px 142px;
+  width: 158px;
+  height: 42px;
+
+  .voltar {
+    flex-shrink: 0;
+    line-height: 19px;
+    letter-spacing: 0;
+    color: var(--Claro-Primaria-01, #1777cf);
+    font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

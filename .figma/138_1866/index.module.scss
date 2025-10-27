@@ -1,0 +1,279 @@
+* {
+  box-sizing: border-box;
+}
+
+.a023 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--Claro-Frente-01, #fcfcfc);
+  padding: 168px 20px 24px 10px;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+
+  .rectangle1 {
+    display: flex;
+    position: absolute;
+    top: -211px;
+    left: -24px;
+    align-items: flex-start;
+    border-radius: 0px 0px 400px 400px;
+    background: #021632;
+    padding: 215px 43px 186px 44px;
+    width: 422px;
+    height: 437px;
+
+    .frame46 {
+      width: 335px;
+      height: 36px;
+    }
+  }
+
+  .autoWrapper {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    padding-right: 0;
+    padding-left: 0;
+
+    .ellipse1 {
+      margin-left: 123px;
+      border-radius: 50%;
+      background: var(--Claro-Fundo-01, #f4f4f4);
+      width: 109px;
+      height: 109px;
+    }
+
+    .frame2131331279 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-self: stretch;
+      justify-content: center;
+      margin-top: 23px;
+      margin-right: 4px;
+
+      .partners {
+        flex-shrink: 0;
+        align-self: stretch;
+        text-align: center;
+        line-height: 83px;
+        letter-spacing: 0;
+        color: #111b31;
+        font-family: "DM Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 64px;
+        font-weight: 700;
+      }
+
+      .suaPlataformaDeParce {
+        flex-shrink: 0;
+        align-self: stretch;
+        margin: -10px 0px 0px;
+        padding: 10px;
+        text-align: center;
+        line-height: 13px;
+        letter-spacing: 0;
+        color: #4b4b4b;
+        font-family: Comfortaa, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+      }
+    }
+
+    .a014 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      align-self: stretch;
+      margin-top: 25px;
+      margin-left: 10px;
+      row-gap: 43px;
+
+      .a012 {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        align-items: flex-start;
+        align-self: stretch;
+        row-gap: 15px;
+
+        .frame2131331275 {
+          display: flex;
+          flex-shrink: 0;
+          align-items: center;
+          align-self: stretch;
+          justify-content: center;
+          column-gap: 10px;
+          padding-right: 4px;
+          padding-left: 4px;
+
+          .email {
+            flex-grow: 1;
+            letter-spacing: 0;
+            color: var(--Claro-Textos-01, #3a3f51);
+            font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+          }
+        }
+
+        .email2 {
+          display: flex;
+          flex-direction: column;
+          flex-shrink: 0;
+          align-items: flex-start;
+          align-self: stretch;
+          row-gap: 9px;
+
+          .frame1 {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            align-self: stretch;
+            column-gap: 10px;
+            border: 1px solid var(--Claro-Bordas-01, #d8e0f0);
+            border-radius: 10px;
+            background: var(--Claro-Frente-01, #fcfcfc);
+            padding: 14px 9px;
+            height: 43px;
+
+            .seuEmailCom {
+              flex-shrink: 0;
+              line-height: 17px;
+              letter-spacing: 0;
+              color: var(--Claro-Textos-03, #91929e);
+              font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+              font-size: 14px;
+            }
+          }
+        }
+
+        .senha2 {
+          display: flex;
+          flex-direction: column;
+          flex-shrink: 0;
+          align-items: flex-start;
+          align-self: stretch;
+          row-gap: 9px;
+
+          .a3 {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            align-self: stretch;
+            column-gap: 10px;
+            border: 1px solid var(--Claro-Bordas-01, #d8e0f0);
+            border-radius: 10px;
+            background: var(--Claro-Frente-01, #fcfcfc);
+            padding: 14px 9px;
+            height: 43px;
+
+            .senha {
+              display: flex;
+              flex-grow: 1;
+              align-items: center;
+              column-gap: 5px;
+              height: 14px;
+
+              .a01 {
+                flex-shrink: 0;
+                border-radius: 50%;
+                background: var(--Claro-Textos-03, #91929e);
+                width: 5px;
+                height: 5px;
+              }
+            }
+
+            .fixo {
+              flex-shrink: 0;
+              width: 24px;
+              height: 24px;
+              overflow: hidden;
+            }
+          }
+        }
+
+        .entrar2 {
+          display: flex;
+          flex-shrink: 0;
+          align-items: center;
+          align-self: stretch;
+          justify-content: center;
+          column-gap: 10px;
+          border-radius: 10px;
+          background: var(--Claro-Primaria-01, #1777cf);
+          padding: 11px 143px;
+          height: 42px;
+
+          .entrar {
+            flex-shrink: 0;
+            line-height: 19px;
+            letter-spacing: 0;
+            color: var(--Claro-Frente-01, #fcfcfc);
+            font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .a022 {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        align-items: flex-start;
+        align-self: stretch;
+        row-gap: 10px;
+
+        .a013 {
+          display: flex;
+          flex-shrink: 0;
+          align-items: center;
+          align-self: stretch;
+          justify-content: center;
+          column-gap: 10px;
+          border: 1px solid var(--Claro-Bordas-01, #d8e0f0);
+          border-radius: 10px;
+          padding: 10px 123px;
+          height: 42px;
+
+          .criarConta {
+            flex-shrink: 0;
+            line-height: 19px;
+            letter-spacing: 0;
+            color: var(--Claro-Textos-01, #3a3f51);
+            font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+          }
+        }
+
+        .a02 {
+          display: flex;
+          flex-shrink: 0;
+          align-items: center;
+          align-self: stretch;
+          justify-content: center;
+          column-gap: 10px;
+          border: 1px solid var(--Claro-Bordas-01, #d8e0f0);
+          border-radius: 10px;
+          padding: 10px 123px;
+          height: 42px;
+
+          .esqueciMinhaSenha {
+            flex-shrink: 0;
+            line-height: 19px;
+            letter-spacing: 0;
+            color: var(--Claro-Primaria-01, #1777cf);
+            font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

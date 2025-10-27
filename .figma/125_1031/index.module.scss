@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+}
+
+.a08 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background: var(--Claro-Frente-01, #fcfcfc);
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+  row-gap: 18px;
+
+  .a012 {
+    display: flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px 20px 60px;
+    width: 375px;
+
+    .a01 {
+      flex-grow: 1;
+      width: 270px;
+      height: 30px;
+    }
+
+    .a02 {
+      flex-shrink: 0;
+      width: 65px;
+      height: 12px;
+    }
+  }
+
+  .image {
+    flex-shrink: 0;
+    width: 324px;
+    height: 270px;
+  }
+
+  .a014 {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    row-gap: 10px;
+
+    .a013 {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      justify-content: center;
+      column-gap: 10px;
+      padding-right: 4px;
+      padding-left: 4px;
+
+      .parabNsLinkon {
+        flex-grow: 1;
+        text-align: center;
+        letter-spacing: 0;
+        color: var(--Claro-Textos-01, #3a3f51);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+
+    .a022 {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      justify-content: center;
+      column-gap: 10px;
+      padding-right: 4px;
+      padding-left: 4px;
+
+      .suaContaFoiCriadaCom {
+        flex-grow: 1;
+        text-align: center;
+        letter-spacing: 0;
+        color: var(--Claro-Textos-01, #3a3f51);
+        font-family: "Nunito Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+
+    .a03 {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      justify-content: center;
+      column-gap: 10px;
+      padding-right: 4px;
+      padding-left: 4px;
+
+      .cliqueEmFinalizarPar3 {
+        flex-grow: 1;
+        text-align: center;
+        letter-spacing: 0;
+        color: #000000;
+        font-family: "Nunito Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+
+        .cliqueEmFinalizarPar {
+          letter-spacing: 0;
+          color: var(--Claro-Textos-02, #7d8592);
+          font-family: "Nunito Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .cliqueEmFinalizarPar2 {
+          letter-spacing: 0;
+          color: var(--Claro-Primaria-01, #1777cf);
+          font-family: "Nunito Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .a024 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+    width: 335px;
+
+    .a3 {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      justify-content: center;
+      column-gap: 10px;
+      border-radius: 10px;
+      background: var(--Claro-Primaria-01, #1777cf);
+      padding: 11px 143px;
+      height: 42px;
+
+      .finalizar {
+        flex-shrink: 0;
+        line-height: 19px;
+        letter-spacing: 0;
+        color: var(--Claro-Frente-01, #fcfcfc);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+
+    .a023 {
+      flex-shrink: 0;
+      width: 375px;
+      height: 45px;
+      overflow: hidden;
+    }
+  }
+}

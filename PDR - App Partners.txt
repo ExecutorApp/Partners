@@ -1,0 +1,444 @@
+# VISÃO GERAL DO PROJETO
+Criar um aplicativo em "React Native (usando Expo)" que funcione tanto no "Android" quanto no "iOS".
+O app se chama "Partners" e é uma plataforma de parcerias inteligentes.
+
+---
+
+# GUIA DE INTERFACE (FIGMA)
+Fidelidade Visual:
+Todas as telas do aplicativo "Partners" já estão "totalmente desenhadas e aprovadas no Figma".  
+Desenvolva cada tela seguindo "100% o layout do figma", garantindo que o código final seja o mais fiel possível ao design original.
+
+Diretrizes
+- Nenhum ajuste visual deve ser feito fora do que está definido no Figma.  
+- Respeitar "cores, espaçamentos, tipografia, ícones, bordas e alinhamentos" exatamente como apresentados.  
+- Todos os componentes (botões, inputs, modais, navegação, etc.) devem ser "replicados com precisão pixel-perfect".  
+- As animações, transições e estados (hover, foco, erro, carregando, sucesso) também estão especificados e devem ser aplicados conforme o protótipo.  
+- Caso o componente não exista nativamente, deve ser "criado manualmente com base no layout" - sem substituições visuais.
+
+Objetivo
+Garantir que o resultado final em React Native (Expo) "reflita 100% o design e experiência criados no Figma", mantendo a coerência da identidade visual da plataforma Partners.
+
+---
+
+# PALETA DE CORES CÓDIGOS (HEX)
+Cores principais: 
+- #021632
+- #FCFCFC
+
+Cor de Destaque (Botões de ações):
+- #1777CF
+
+Cores de Texto:
+- Texto Primário: #3A3F51
+- Texto Secundário: #7D8592
+- Texto Placeholders: #91929E
+
+Estados:
+- Hover: #1777CF - Opacidade: 80%
+- Active: #1777CF
+- Border: #D8E0F0
+
+---
+
+# TIPOGRAFIA PROFISSIONAL
+Família
+- Inter (legível, moderna e compatível com Android/iOS).  
+- Fallback (Helvetica Neue, Helvetica, Arial, DM Sans).
+
+Escala Tipográfica
+| Estilo | Tamanho | Peso | Uso |
+|--------|----------|------|------|
+| h1 | 40px / 2.5rem | 700 | Títulos principais |
+| h2 | 32px / 2rem | 600 | Subtítulos e seções |
+| h3 | 24px / 1.5rem | 500 | Títulos de bloco |
+| h4 | 20px / 1.25rem | 500 | Cabeçalhos menores |
+| Body | 16px / 1rem | 400 | Texto padrão |
+| Small | 14px / 0.875rem | 400 | Textos secundários |
+| Caption | 12px / 0.75rem | 400 | Mensagens e rótulos |
+
+---
+
+# MICROINTERAÇÕES E ANIMAÇÕES
+Transições Principais:
+- Page transitions: fadeInUp 0.5s ease-out
+- Card hovers: scale(1.02) + shadow elevation
+- Button interactions: scale(0.98) on active
+- Loading states: skeleton screens com shimmer effect
+- Form validations: shake animation para erros
+
+# Animações Específicas:
+- Loading entre módulos: spinner personalizado
+- Notificações: slideInFromRight com auto-dismiss
+- Modais: fadeIn + scaleUp centrado na tela
+- Toggle sidebar: slideInLeft com overlay escuro
+
+---
+
+# ESTRATÉGIAS PARA PÚBLICO-ALVO (20-50 ANOS)
+Experiência Mobile-First:
+- Touch targets mínimos de 44x44px
+- Gestos swipe para navegação lateral
+- Keyboard avoidance em formulários
+- Optimização de performance para 3G/4G
+
+# Acessibilidade:
+- Contraste mínimo 4.5:1 para texto
+- Labels descritivos para screen readers
+- Tamanho de fonte escalável até 200%
+
+---
+
+# CONSIDERAÇÕES TÉCNICAS E IMPLEMENTAÇÃO
+Performance Mobile:
+- Images: WebP format com lazy loading
+- Code splitting por módulos funcionais
+- Bundle size otimizado (< 2MB inicial)
+- Cache strategy para dados estáticos
+
+---
+
+# Responsividade Avançada:
+css
+- @media (max-width: 480px) { /* Mobile pequeno */ }
+- @media (max-width: 768px) { /* Tablet portrait */ }
+- @media (max-width: 1024px) { /* Tablet landscape */ }
+
+---
+
+# SESSÕES (Telas que devem ser desenvolvidas)
+----------------------------------------------------
+1. LOGIN
+----------------------------------------------------
+Objetivo da Tela:
+- Permitir que o usuário entre na plataforma Partners informando email e senha. 
+- Serve como ponto de entrada inicial do app.
+
+Fluxo do Usuário
+- O usuário abre o app e cai na tela com a logo da empresa (Carregamento do App), 5 segundos.
+- Automaticamente após os 5 segundos aparece a tela de login. 
+- Ele insere seu email e senha.
+- Clica em “Entrar” para seguir para a próxima etapa.
+- Escolhe a empresa e clica em "entrar". 
+
+Opções Extras:
+- Pode optar por visualizar ou ocultar a senha.
+- Se não tiver conta, pode clicar em “Criar conta”.
+- Se esqueceu a senha, pode clicar em “Esqueci minha senha”.
+
+1.1. Tela (Login):
+- Campos:
+  - Email
+  - Senha
+- Ações:
+  - Entrar (leva para seleção de empresa)
+  - Criar Conta (inicia fluxo de cadastro) 
+  - Trocar senha
+- Extras:
+  - Mostrar/ocultar senha
+  - Validação de campos obrigatórios
+
+1.2. Tela (Seleção de Empresa):
+- Título: “Por qual empresa você deseja fazer login?”
+- Opções de empresa (Radio Buttons):
+  - Lima Neto Advogados
+  - Sergio Escapamentos
+  - Barbomania - Produtos
+- Botão Entrar: habilitado após seleção
+- Ação: Exibir mensagem “Login realizado com sucesso!”
+
+----------------------------------------------------
+2. CADASTRO (CRIAR CONTA)
+----------------------------------------------------
+Objetivo da Tela:
+- Permitir que o usuário crie uma conta para entrar na plataforma Partners.
+- Cada tela é validada individualmente antes de avançar.
+
+Regras gerais de navegação:
+- O fluxo de cadastro é linear e guiado passo a passo.
+- Cada tela valida seus campos antes de liberar o botão “Próximo”.
+- Usuário pode retornar etapas anteriores usando “Voltar”.
+- Após a tela de sucesso, o app redireciona automaticamente para o login.
+
+2.1. Tela (Informações Pessoais):
+- Campos obrigatórios:
+  - Nome completo
+  - WhatsApp
+- Feedback:
+  - “Preencha os campos obrigatórios para continuar”
+  - Quando válido: “Pronto para continuar”
+- Botões:
+  - Voltar
+  - Próximo (habilitado apenas se ambos os campos forem válidos)
+
+2.2. Tela (Validação do WhatsApp):
+- Título: “Excelente, [Nome]!”
+- Descrição: “Digite o código de 6 dígitos que enviamos para o seu WhatsApp.”
+- Campos:
+  - 6 campos individuais para cada dígito
+- Ações:
+  - Reenviar código (com contagem regressiva de 30s)
+  - Botões: Voltar / Próximo
+- Estado de validação:
+  - “Pronto para continuar” após inserir os 6 dígitos
+
+2.3. Tela (Email):
+- Título: “Qual o seu email, [Nome]?”
+- Campo:
+  - Email (obrigatório)
+- Feedback:
+  - “Preencha os campos obrigatórios para continuar”
+- Botões:
+  - Voltar / Próximo (apenas quando válido)
+
+2.4. Tela (Validação do Email):
+- Descrição: “Digite o código de 4 dígitos que enviamos para o seu email.”
+- Campos:
+  - 4 campos numéricos para o código
+- Ações:
+  - Reenviar código (contagem regressiva de 30s)
+  - Botões: Voltar / Próximo
+- Estado:
+  - “Pronto para continuar” após código completo
+
+2.5. Tela (Localização):
+- Campos obrigatórios:
+  - Estado (dropdown)
+  - Cidade (campo de texto)
+- Feedback:
+  - “Pronto para continuar” quando ambos preenchidos
+- Botões:
+  - Voltar / Próximo
+
+2.6. Tela (Segurança):
+- Campos obrigatórios:
+  - Senha
+  - Confirmar Senha
+- Regras:
+  - Ambas devem coincidir
+  - Exibir/ocultar senha (ícone de olho)
+- Botões:
+  - Voltar / Criar Conta (habilitado após validação)
+
+2.7. Tela (Confirmação de Cadastro):
+- Tela de sucesso após criação da conta.
+- Ilustração com pessoas comemorando.
+- Texto:
+  - “Parabéns! Sua conta foi criada com sucesso.”
+  - “Clique em ‘Finalizar’ para acessar sua conta.”
+- Botão:
+  - Finalizar → retorna à tela de Login
+
+----------------------------------------------------
+3. TROCAR SENHA
+----------------------------------------------------
+Objetivo da Tela:
+- Permitir que o usuário redefina sua senha de forma segura, escolhendo o canal de verificação (Email ou WhatsApp) e criando uma nova senha após a confirmação do código.
+
+Regras gerais de navegação:
+- O fluxo de troca de senha é linear e dividido em três etapas.
+- Cada tela valida seus campos antes de liberar o botão “Próximo”.
+- O usuário pode retornar etapas anteriores usando “Voltar”.
+- Após redefinir a senha com sucesso, o app exibe uma mensagem de confirmação e redireciona o usuário para o login.
+
+Regras de Validação e Segurança
+- O código de verificação expira em 5 minutos.
+- O botão “Reenviar código” só é liberado após 30 segundos.
+- Senhas não devem ser exibidas em texto puro (uso obrigatório de `secureTextEntry={true}`).
+- Cada etapa só avança se os campos obrigatórios estiverem válidos.
+- Prevenir tentativas excessivas de solicitação de código (limite de 3 tentativas por minuto).
+
+3.1. Tela (Selecionar Método de Verificação)
+- Título: “Trocar Senha”
+- Subtítulo: “Selecione uma opção para enviarmos o seu código de verificação.”
+
+- Opções de envio (Radio Buttons):
+  - Email → Exibir parcialmente o email (exemplo: """"@mail.com)
+  - WhatsApp → Exibir parcialmente o número (exemplo: "" "" 0101)
+
+- Campos:
+  - RadioButton (Email ou WhatsApp)
+
+- Botões:
+  - Enviar (habilitado após seleção de uma das opções)
+
+- Ações:
+  - Ao clicar em “Enviar”, o usuário é direcionado para a próxima tela (Validação de Código).
+  - O sistema envia o código de verificação para o canal escolhido.
+
+- Feedback:
+  - Exibir mensagem “Código enviado com sucesso para o [canal escolhido]”.
+  - Caso ocorra erro: “Não foi possível enviar o código, tente novamente.”
+
+
+3.2. Tela (Validação do Código)
+- Título: depende do canal escolhido (exemplo: “Email” ou “WhatsApp”)
+- Descrição: “Digite o código de 4 dígitos que enviamos para o seu [canal].”
+
+- Campos:
+  - 4 campos numéricos individuais para inserção do código de verificação
+
+- Ações:
+  - Reenviar código (com contagem regressiva de 30 segundos)
+  - Botões: Voltar / Próximo
+
+- Estados:
+  - “Pronto para continuar” após inserir os 4 dígitos corretamente
+  - “Código inválido, tente novamente.” em caso de erro
+
+- Feedback visual:
+  - Sucesso: ícone e texto em verde “✓ Pronto para continuar”
+  - Erro: texto em vermelho abaixo do campo
+
+3.3. Tela (Nova Senha)
+- Título: “Nova Senha”
+- Subtítulo: “Crie uma nova senha que seja segura e fácil de lembrar.”
+
+- Campos obrigatórios:
+  - Nova Senha *
+  - Confirmar Senha *
+
+- Regras:
+  - Ambas as senhas devem coincidir
+  - Senha deve ter no mínimo 8 caracteres
+  - Deve conter pelo menos uma letra maiúscula, uma minúscula e um número
+  - Ícones de olho para exibir/ocultar senha
+
+- Botões:
+  - Voltar
+  - Confirmar (habilitado apenas quando as senhas são válidas e idênticas)
+
+- Feedback:
+  - “As senhas não coincidem.”
+  - “Senha inválida, verifique os requisitos.”
+  - “Senha redefinida com sucesso!” (redireciona para tela de sucesso)
+
+3.4. Tela (Confirmação de Senha Atualizada)
+- Tipo: Modal de sucesso ou tela final
+- Ícone: Cadeado com símbolo de sucesso (check azul)
+- Texto principal:
+  - “Parabéns!”
+- Subtexto:
+  - “Sua senha foi atualizada com sucesso. Agora você pode efetuar login com sua nova senha.”
+- Botão:
+  - “Fazer login agora” → redireciona o usuário para a tela de Login
+
+----------------------------------------------------
+4. CADASTRAR EMPRESA E CONTA BANCÁRIA
+----------------------------------------------------
+- Objetivo:
+Garantir que o usuário complete todas as informações cadastrais obrigatórias (dados pessoais, empresa e conta bancária) antes de utilizar qualquer funcionalidade do app Partners.
+
+- Contexto:
+Após o primeiro login, o sistema verifica se o usuário possui os dados de empresa e conta bancária cadastrados.
+Caso não possua, é exibido um "pop-up modal bloqueante", que impede o uso do app até o preenchimento completo.
+
+Comportamento Principal:
+- O "pop-up de cadastro de empresa" aparece imediatamente após o login caso:
+  - O usuário ainda não tenha dados de empresa cadastrados, OU
+  - Faltem informações obrigatórias na conta bancária.
+- O usuário "pode fechar o modal", mas:
+  - Qualquer ação dentro do app (tentar navegar, abrir menus, acessar recursos) "faz o modal reaparecer automaticamente".
+  - Isso continua até que o cadastro completo seja concluído.
+- O sistema só libera o uso do app após a conclusão total do fluxo.
+
+Regras de Validação
+- CPF e CNPJ:
+  - Máscara automática e validação numérica.
+  - Exibir erro: “Documento inválido.”
+- Email:
+  - Formato padrão (ex: nome@email.com)
+- CEP:
+  - 8 dígitos; pode acionar autocomplete de cidade e estado (integração futura)
+- PIX:
+  - Validar formato de acordo com o tipo selecionado
+
+4.1. Tela (Pop-up Inicial – Cadastrar Empresa)
+- Tipo: Modal bloqueante (overlay sobre todo o app)
+- Título: “Cadastre sua empresa”
+- Descrição: “Antes de seguir, preencha as informações da sua empresa e conta bancária.”
+- Ícone: prédio azul com check (representando empresa)
+- Botões:
+  - “Cadastrar agora” → abre o fluxo de cadastro (dados cadastrais)
+  - “Fechar” (ícone “X” no canto superior direito)
+
+- Regras:
+  - Mesmo que o usuário feche o modal, ele não pode realizar nenhuma ação sem concluir o cadastro.
+  - Todas as rotas do app (exceto logout) devem ter uma checagem de bloqueio:
+    → Se o cadastro estiver incompleto → Reexibir modal.
+
+- Feedback:
+  - Ao clicar em “Cadastrar agora”, abre o fluxo `CompanyRegisterNavigator`
+  - Ao fechar, app continua visível, mas toda ação é interceptada e redireciona para o modal novamente.
+
+4.2. Tela (Dados Cadastrais – Pessoais)
+- Título: “Dados Cadastrais”
+- Aba ativa: Pessoais (ícone de usuário)
+
+- Campos obrigatórios:
+  - Nome completo *
+  - CPF *
+  - Email *
+  - WhatsApp *
+
+- Campos de localização:
+  - Estado (dropdown)
+  - CEP
+  - Cidade
+  - Bairro
+  - Endereço
+  - Número
+  - Complemento
+
+- Botões:
+  - Cancelar → volta para o modal (pop-up principal)
+  - Salvar → habilitado somente com todos os campos obrigatórios preenchidos
+
+- Feedback:
+  - “Preencha os campos obrigatórios para continuar.”
+  - “Dados pessoais salvos com sucesso!”
+
+
+4.3. Tela (Dados Cadastrais – Empresa)
+- Título: “Dados Cadastrais”
+- Aba ativa: Empresa (ícone de prédio)
+
+- Campos obrigatórios:
+  - Razão Social *
+  - CNPJ *
+  - Estado (dropdown)
+  - CEP
+  - Cidade
+  - Bairro
+  - Endereço
+  - Número
+  - Complemento
+
+- Botões:
+  - Voltar (retorna para aba Pessoais)
+  - Salvar (habilitado quando todos os campos obrigatórios são válidos)
+
+- Feedback:
+  - “Preencha os campos obrigatórios para continuar.”
+  - “Dados da empresa salvos com sucesso!”
+
+
+4.4. Tela (Dados Cadastrais – Conta Bancária)
+- Título: “Dados Cadastrais”
+- Aba ativa: Conta Bancária (ícone de cifrão)
+
+- Campos obrigatórios:
+  - Banco * (dropdown)
+  - Agência *
+  - Conta corrente *
+  - Tipo de chave PIX * (dropdown)
+  - Chave PIX da empresa *
+
+- Botões:
+  - Voltar / Salvar
+- Feedback:
+  - “Preencha os campos obrigatórios para continuar.”
+  - “Conta bancária cadastrada com sucesso!”
+
+
+

@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+.a014 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fcfcfc;
+  padding: 4px 10px;
+  width: 417px;
+  height: 812px;
+  overflow: hidden;
+
+  .a01 {
+    flex-shrink: 0;
+    align-self: stretch;
+    width: 397px;
+    height: 36px;
+  }
+
+  .a013 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    align-self: stretch;
+    justify-content: center;
+    padding-bottom: 135px;
+    row-gap: 25px;
+
+    .a02 {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      justify-content: center;
+      column-gap: 10px;
+
+      .icon {
+        flex-shrink: 0;
+        border-radius: 99px;
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    .a012 {
+      display: inline-flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      justify-content: center;
+      padding-right: 61px;
+      padding-left: 61px;
+
+      .partners {
+        flex-shrink: 0;
+        align-self: stretch;
+        text-align: center;
+        line-height: 83px;
+        letter-spacing: 0;
+        color: #111b31;
+        font-family: "DM Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 64px;
+        font-weight: 700;
+      }
+
+      .suaPlataformaDeParce {
+        flex-shrink: 0;
+        align-self: stretch;
+        margin: -10px 0px 0px;
+        padding: 10px;
+        text-align: center;
+        line-height: 13px;
+        letter-spacing: 0;
+        color: #4b4b4b;
+        font-family: Comfortaa, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+.a4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 335px;
+  height: 216px;
+
+  .digiteOcDigoDe6DGito {
+    padding: 14px 0px;
+    width: 335px;
+    height: 66px;
+    text-align: center;
+    line-height: 38px;
+    letter-spacing: 0;
+    color: var(--Claro-Textos-01, #3a3f51);
+    font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .dGitos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    margin-top: 20px;
+    width: 335px;
+    height: 48px;
+
+    .a01 {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--Grey-grey-100, #c0c0c0);
+      border-radius: 10px;
+      padding: 11px 19px;
+      height: 48px;
+      overflow: hidden;
+      row-gap: 10px;
+
+      .a1 {
+        flex-shrink: 0;
+        line-height: 29px;
+        letter-spacing: 0;
+        color: var(--Claro-Textos-01, #3a3f51);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .reenviarCDigoEm0028 {
+    margin: 20px 0px 0px;
+    line-height: 17px;
+    letter-spacing: 0;
+    color: var(--Claro-Primaria-02, #0095ff);
+    font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+
+  .a03 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    margin-top: 28px;
+    padding-right: 4px;
+    padding-left: 4px;
+    width: 335px;
+
+    .aProntoParaContinuar {
+      flex-grow: 1;
+      text-align: center;
+      letter-spacing: 0;
+      color: var(--Claro-Status-01A, #1b883c);
+      font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+  }
+}
