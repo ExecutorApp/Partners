@@ -9,6 +9,7 @@ import {
   ScrollView,
   StatusBar,
   Image,
+  Platform,
 } from 'react-native';
 
 // Importações das imagens dos produtos
@@ -65,6 +66,17 @@ const TempoMedioIcon = ({ size = 18, color = "#7D8592" }) => (
 const ProductListScreen = () => {
   const navigation = useNavigation();
   const [searchText, setSearchText] = useState('');
+  const handleSearchTextChange = (text: string) => {
+    let i = 0;
+    while (i < text.length && text[i] === ' ') i++;
+    if (i >= text.length) {
+      setSearchText(text);
+      return;
+    }
+    const first = text[i].toUpperCase();
+    const transformed = text.slice(0, i) + first + text.slice(i + 1);
+    setSearchText(transformed);
+  };
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedSortOption, setSelectedSortOption] = useState({
     category: 'Tempo médio de fechamento',
@@ -124,6 +136,58 @@ const ProductListScreen = () => {
       image: planejamentoTributarioImage,
     },
   ];
+
+  // Filtragem em tempo real pelo nome do produto
+  const normalizedSearch = searchText.trim().toLowerCase();
+  const filteredProducts = normalizedSearch.length === 0
+    ? products
+    : products.filter((p) => p.title.toLowerCase().includes(normalizedSearch));
+
+  // Ordenação baseada na opção selecionada no modal
+  const parseNumberOnly = (value: string) => {
+    const digits = value.replace(/[^0-9]/g, '');
+    return Number(digits);
+  };
+
+  const sortedProducts = (() => {
+    const list = [...filteredProducts];
+    const { category, option } = selectedSortOption;
+
+    if (category === 'Data de adição') {
+      if (option === 'Mais antigos primeiro') {
+        return list.reverse();
+      }
+      // 'Mais recentes primeiro' mantém a ordem original
+      return list;
+    }
+
+    if (category === 'Comissão') {
+      return list.sort((a, b) => {
+        const av = parseNumberOnly(a.commission);
+        const bv = parseNumberOnly(b.commission);
+        return option === 'Maior para o menor' ? bv - av : av - bv;
+      });
+    }
+
+    if (category === 'Ticket médio') {
+      return list.sort((a, b) => {
+        const av = parseNumberOnly(a.averageTicket);
+        const bv = parseNumberOnly(b.averageTicket);
+        return option === 'Maior para o menor' ? bv - av : av - bv;
+      });
+    }
+
+    if (category === 'Tempo médio de fechamento') {
+      return list.sort((a, b) => {
+        const av = parseNumberOnly(a.averageClosingTime);
+        const bv = parseNumberOnly(b.averageClosingTime);
+        return option === 'Maior para o menor' ? bv - av : av - bv;
+      });
+    }
+
+    // Qualquer outra combinação mantém a ordem atual
+    return list;
+  })();
 
   const renderProductCard = (product: any) => (
     <View key={product.id} style={styles.productCard}>
@@ -215,22 +279,25 @@ const ProductListScreen = () => {
             <Svg width={16} height={16} viewBox="0 0 16 16" fill="none" style={styles.searchIcon}>
               <Path d="M15 15L11.6556 11.6556M13.4444 7.22222C13.4444 10.6587 10.6587 13.4444 7.22222 13.4444C3.78578 13.4444 1 10.6587 1 7.22222C1 3.78578 3.78578 1 7.22222 1C10.6587 1 13.4444 3.78578 13.4444 7.22222Z" stroke="#7D8592" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
             </Svg>
-             <TextInput
-               style={styles.searchInput}
-               placeholder="pesquise aqui"
-               placeholderTextColor="#91929e"
-               value={searchText}
-               onChangeText={setSearchText}
-             />
+           <TextInput
+              style={[
+                styles.searchInput,
+                Platform.select({ web: { outlineStyle: 'none', outlineWidth: 0 } }) as any,
+              ]}
+              placeholder="pesquise aqui"
+              placeholderTextColor="#91929e"
+              value={searchText}
+              onChangeText={handleSearchTextChange}
+            />
            </View>
          </View>
 
         {/* Products */}
          <View style={styles.productsContainer}>
-           {products.map((product, index) => (
+           {sortedProducts.map((product, index) => (
              <React.Fragment key={product.id}>
                {renderProductCard(product)}
-               {index < products.length - 1 && (
+               {index < sortedProducts.length - 1 && (
                  <View style={styles.productDivider} />
                )}
              </React.Fragment>
@@ -449,9 +516,9 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    fontSize: 12,
+    fontSize: 14,
     fontFamily: 'Inter_400Regular',
-    color: '#91929e',
+    color: '#3A3F51',
   },
   productsContainer: {
     paddingHorizontal: 16,
