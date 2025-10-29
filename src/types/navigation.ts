@@ -3,6 +3,16 @@ export type RootStackParamList = {
   Login: undefined;
   Enterprise: undefined;
   ProductList: undefined;
+  PresentationScreen: {
+    product: {
+      id: string;
+      title: string;
+      commission: string;
+      averageTicket: string;
+      averageClosingTime: string;
+      image?: any;
+    };
+  };
   CompanySelection: undefined;
   PersonalInfo: undefined;
   WhatsAppValidation: undefined;
@@ -22,6 +32,7 @@ export const ScreenNames = {
   Login: 'Login' as const,
   Enterprise: 'Enterprise' as const,
   ProductList: 'ProductList' as const,
+  PresentationScreen: 'PresentationScreen' as const,
   CompanySelection: 'CompanySelection' as const,
   PersonalInfo: 'PersonalInfo' as const,
   WhatsAppValidation: 'WhatsAppValidation' as const,

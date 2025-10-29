@@ -5,6 +5,7 @@ import { SplashScreen } from '../screens/0.SplashScreen/SplashScreen';
 import { LoginScreen } from '../screens/1.Login/1. LoginScreen';
 import { EnterpriseScreen } from '../screens/1.Login/2. EnterpriseScreen';
 import ProductListScreen from '../screens/4.Products/1.ProductListScreen';
+import PresentationScreen from '../screens/4.Products/3.PresentationScreen';
 import { PersonalInfoScreen } from '../screens/2.Register/1. PersonalInfoScreen';
 import { WhatsAppValidationScreen } from '../screens/2.Register/2. WhatsAppValidationScreen';
 import { EmailValidationScreen } from '../screens/2.Register/4. EmailValidationScreen';
@@ -61,6 +62,15 @@ export const AppNavigator: React.FC = () => {
           }}
         >
           {() => <ProductListScreen />}
+        </Stack.Screen>
+
+        <Stack.Screen
+          name={ScreenNames.PresentationScreen}
+          options={{
+            animationTypeForReplace: 'push',
+          }}
+        >
+          {() => <PresentationScreen />}
         </Stack.Screen>
 
         <Stack.Screen
