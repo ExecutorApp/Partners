@@ -6,7 +6,13 @@ export type PersonalInfo = {
   email?: string;
 };
 
+export type LocationData = {
+  state: string;
+  city: string;
+};
+
 const KEY = 'partners.personalInfo';
+const LOCATION_KEY = 'partners.location';
 
 // Simple in-memory fallback for non-web platforms (when localStorage/sessionStorage are not available)
 const memoryStore: Record<string, string> = {};
@@ -81,5 +87,45 @@ export function clearPersonalInfo(): void {
     delete memoryStore[KEY];
   } catch {
     delete memoryStore[KEY];
+  }
+}
+
+// Location persistence helpers
+export function saveLocation(state: string, city: string): void {
+  const storage = getWebStorage();
+  const payload = JSON.stringify({ state, city });
+  try {
+    if (storage) {
+      storage.setItem(LOCATION_KEY, payload);
+    } else {
+      memoryStore[LOCATION_KEY] = payload;
+    }
+  } catch {
+    memoryStore[LOCATION_KEY] = payload;
+  }
+}
+
+export function getLocation(): LocationData | null {
+  const storage = getWebStorage();
+  try {
+    const raw = storage ? storage.getItem(LOCATION_KEY) : memoryStore[LOCATION_KEY];
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as LocationData;
+    if (!parsed || typeof parsed.state !== 'string' || typeof parsed.city !== 'string') return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+export function clearLocation(): void {
+  const storage = getWebStorage();
+  try {
+    if (storage) {
+      storage.removeItem(LOCATION_KEY);
+    }
+    delete memoryStore[LOCATION_KEY];
+  } catch {
+    delete memoryStore[LOCATION_KEY];
   }
 }

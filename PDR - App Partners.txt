@@ -324,7 +324,154 @@ Regras de Validação e Segurança
   - “Fazer login agora” → redireciona o usuário para a tela de Login
 
 ----------------------------------------------------
-4. CADASTRAR EMPRESA E CONTA BANCÁRIA
+4. PRODUTOS
+----------------------------------------------------
+Descrição:
+A tela de Produtos apresenta a lista de produtos disponíveis no portfólio da empresa, permitindo ao usuário visualizar informações comerciais essenciais de forma clara e organizada. É o ponto de partida para a maioria das interações comerciais dentro do app.
+
+Objetivo:
+Facilitar o acesso e a consulta rápida aos produtos, destacando suas informações principais (comissão, ticket médio e tempo de fechamento), além de permitir a navegação para detalhes e treinamentos específicos de cada produto.
+
+Estrutura da Tela:
+
+4.1. Cabeçalho
+   - Título: “Produtos (XX)” exibindo o total de produtos cadastrados.
+   - Ícone de notificações (🔔) com contador de alertas.
+   - Ícone de menu (☰) para acesso ao menu lateral completo.
+   - Objetivo: Fornecer contexto e acesso rápido a funcionalidades globais.
+
+4.2. Filtro e Pesquisa
+   - Campo “Ordenar por”: menu suspenso com opções de ordenação (Ex: Mais recentes primeiro, Maior comissão, etc.).
+   - Campo de busca: permite pesquisar produtos pelo nome.
+   - Objetivo: Oferecer controle sobre a visualização e facilitar a localização de produtos específicos.
+
+4.3. Lista de Produtos
+   Cada item da lista contém:
+   - Imagem do produto (miniatura à esquerda).
+   - Nome do produto (ex: “Holding Patrimonial”).
+   - Informações complementares:
+     • Comissão (%)
+     • Ticket médio (R$)
+     • Tempo médio de fechamento (dias)
+   - Layout em cartão com espaçamento entre itens.
+   - Objetivo: Exibir informações resumidas de forma legível e permitir acesso rápido ao detalhe do produto.
+
+4.4. Interações e Ações
+   - Toque em um produto: abre a tela de detalhes do produto selecionado.
+   - Rolagem vertical: exibe mais produtos conforme o usuário desliza.
+   - Ícones e botões responsivos com feedback visual (hover/touch).
+
+Comportamento:
+- Rolagem vertical contínua (scroll natural de toque).
+- Ordenação dinâmica com atualização instantânea da lista.
+- O campo de busca filtra produtos em tempo real.
+- O contador no cabeçalho é atualizado conforme os filtros aplicados.
+
+Navegação:
+- Ícone inferior ativo: Produtos
+- Acesso ao detalhe do produto → Tela “Produto Detalhe”
+- Acesso ao menu lateral → Ícone ☰
+- Retorno às telas principais → Menu inferior fixo
+
+Fluxo de uso típico:
+1. O usuário abre a tela de Produtos (menu inferior).
+2. Usa o filtro ou pesquisa para localizar um produto.
+3. Visualiza as informações principais.
+4. Toca em um produto para acessar seus detalhes e treinamentos.
+
+----------------------------------------------------
+5. MENU INFERIOR (NAVEGAÇÃO PRINCIPAL)
+----------------------------------------------------
+Descrição:
+O menu inferior é fixo e visível em todas as telas principais do aplicativo. Ele oferece acesso rápido às seções mais utilizadas, garantindo navegação intuitiva e fluida.
+
+Objetivo:
+Permitir que o usuário navegue de forma ágil entre as principais áreas operacionais do aplicativo, mantendo sempre à mão as funções essenciais para o fluxo de trabalho.
+
+Itens do Menu (da esquerda para a direita):
+5.1. Produtos
+   - Função: Exibe a lista de produtos disponíveis.
+   - Estado ativo: Ícone na cor Azul padrão (#1777CF).
+   - Estado inativo: Ícone na cor Preto padrão (#3A3F51).
+
+5.2. Clientes
+   - Função: Exibe a base de clientes cadastrados.
+   - Estado ativo: Azul padrão (#1777CF).
+   - Estado inativo: Preto padrão (#3A3F51).
+
+5.3. Vendas (Botão principal)
+   - Função: Inicia o fluxo principal de venda.
+   - Destaque: Ícone central em botão hexagonal azul.
+   - Ação principal do app.
+
+5.4. Agenda
+   - Função: Exibe compromissos e tarefas futuras.
+   - Estado ativo: Azul padrão (#1777CF).
+   - Estado inativo: Preto padrão (#3A3F51).
+
+5.5. Comissão
+   - Função: Mostra ganhos, total e parcial de cada produto.
+   - Estado ativo: Azul padrão (#1777CF).
+   - Estado inativo: Preto padrão (#3A3F51).
+
+Comportamento:
+- Sempre visível nas telas principais.
+- Desaparece automaticamente em formulários longos ou modais de tela cheia.
+- O botão central (Vendas) abre o fluxo de venda em tela dedicada.
+
+----------------------------------------------------
+6. MENU LATERAL (MENU COMPLETO / DRAWER)
+----------------------------------------------------
+Descrição:
+O menu lateral oferece acesso completo às seções do app, incluindo funcionalidades secundárias, áreas de suporte e configurações do usuário. É acessado pelo ícone de menu (☰) no canto superior direito.
+
+Objetivo:
+Concentrar todas as opções e recursos complementares em um único espaço, permitindo que o usuário acesse funções administrativas, treinamentos e relatórios de forma organizada.
+
+Itens do Menu:
+6.1. Dashboard
+   - Resumo geral de performance e métricas.
+   - Objetivo: Exibir um panorama das atividades, vendas e comissões em tempo real.
+
+6.2. Produtos
+   - Acesso rápido à lista de produtos.
+   - Objetivo: Consultar e gerenciar o portfólio de produtos disponíveis.
+
+6.3. Keymans
+   - Lista de responsáveis comerciais.
+   - Objetivo: Identificar e gerenciar parceiros ou decisores comerciais.
+
+6.4. Clientes
+   - Base de clientes e detalhes de contato.
+   - Objetivo: Gerenciar o relacionamento e as informações de cada cliente.
+
+6.5. Agenda
+   - Compromissos e atividades agendadas.
+   - Objetivo: Controlar tarefas e compromissos vinculados a vendas e clientes.
+
+6.6. Vendas
+   - Histórico e status das negociações.
+   - Objetivo: Acompanhar o progresso das vendas e o pipeline comercial.
+
+6.7. Comissões
+   - Acompanhamento de ganhos e relatórios financeiros.
+   - Objetivo: Permitir ao usuário monitorar seus rendimentos de forma detalhada.
+
+6.8. Treinamentos
+   - Conteúdo educacional e materiais de apoio.
+   - Objetivo: Facilitar o acesso a materiais de capacitação e desenvolvimento profissional.
+
+6.9. Configurações
+   - Preferências do usuário, notificações e idioma.
+   - Objetivo: Personalizar a experiência do usuário dentro do aplicativo.
+
+Comportamento:
+- Abre por gesto (arrastar da borda esquerda) ou toque no ícone ☰.
+- Fecha automaticamente ao selecionar uma opção ou tocar fora da área.
+- Pode conter scroll vertical se houver mais itens que o espaço disponível.
+
+----------------------------------------------------
+7. CADASTRAR EMPRESA E CONTA BANCÁRIA
 ----------------------------------------------------
 - Objetivo:
 Garantir que o usuário complete todas as informações cadastrais obrigatórias (dados pessoais, empresa e conta bancária) antes de utilizar qualquer funcionalidade do app Partners.
@@ -353,7 +500,7 @@ Regras de Validação
 - PIX:
   - Validar formato de acordo com o tipo selecionado
 
-4.1. Tela (Pop-up Inicial – Cadastrar Empresa)
+7.1. Tela (Pop-up Inicial – Cadastrar Empresa)
 - Tipo: Modal bloqueante (overlay sobre todo o app)
 - Título: “Cadastre sua empresa”
 - Descrição: “Antes de seguir, preencha as informações da sua empresa e conta bancária.”
@@ -371,7 +518,7 @@ Regras de Validação
   - Ao clicar em “Cadastrar agora”, abre o fluxo `CompanyRegisterNavigator`
   - Ao fechar, app continua visível, mas toda ação é interceptada e redireciona para o modal novamente.
 
-4.2. Tela (Dados Cadastrais – Pessoais)
+7.2. Tela (Dados Cadastrais – Pessoais)
 - Título: “Dados Cadastrais”
 - Aba ativa: Pessoais (ícone de usuário)
 
@@ -399,7 +546,7 @@ Regras de Validação
   - “Dados pessoais salvos com sucesso!”
 
 
-4.3. Tela (Dados Cadastrais – Empresa)
+7.3. Tela (Dados Cadastrais – Empresa)
 - Título: “Dados Cadastrais”
 - Aba ativa: Empresa (ícone de prédio)
 
@@ -423,7 +570,7 @@ Regras de Validação
   - “Dados da empresa salvos com sucesso!”
 
 
-4.4. Tela (Dados Cadastrais – Conta Bancária)
+7.4. Tela (Dados Cadastrais – Conta Bancária)
 - Título: “Dados Cadastrais”
 - Aba ativa: Conta Bancária (ícone de cifrão)
 

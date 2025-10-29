@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+.a022 {
+  position: relative;
+  width: 107px;
+  height: 107px;
+
+  .bG {
+    display: flex;
+    position: absolute;
+    top: 7px;
+    left: 0;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--Claro-Fundo-01, #f4f4f4);
+    padding: 30px 25px;
+    width: 100px;
+    height: 100px;
+
+    .a02 {
+      width: 50px;
+      height: 40px;
+    }
+  }
+
+  .a01 {
+    position: absolute;
+    top: 0;
+    left: 77px;
+    outline-width: 3px;
+    outline-style: solid;
+    outline-color: var(--Claro-Frente-01, #fcfcfc);
+    border-radius: 99px;
+    width: 30px;
+    height: 30px;
+  }
+}

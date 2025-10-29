@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+.a042 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 18px;
+  background: var(--Claro-Frente-01, #fcfcfc);
+  padding: 15px 16px 40px;
+  width: 366px;
+  height: 405px;
+  overflow: hidden;
+  row-gap: 30px;
+
+  .a01 {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    align-self: stretch;
+    justify-content: flex-end;
+    column-gap: 13px;
+
+    .fecharX {
+      flex-shrink: 0;
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  .a022 {
+    position: relative;
+    flex-shrink: 0;
+    width: 107px;
+    height: 107px;
+
+    .bG {
+      display: flex;
+      position: absolute;
+      top: 7px;
+      left: 0;
+      align-items: center;
+      border-radius: 10px;
+      background: var(--Claro-Fundo-01, #f4f4f4);
+      padding: 30px 25px;
+      width: 100px;
+      height: 100px;
+
+      .a02 {
+        width: 50px;
+        height: 40px;
+      }
+    }
+
+    .a012 {
+      position: absolute;
+      top: 0;
+      left: 77px;
+      outline-width: 3px;
+      outline-style: solid;
+      outline-color: var(--Claro-Frente-01, #fcfcfc);
+      border-radius: 99px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .a03 {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    row-gap: 10px;
+
+    .parabNs {
+      flex-shrink: 0;
+      align-self: stretch;
+      text-align: center;
+      letter-spacing: 0;
+      color: var(--Claro-Textos-01, #3a3f51);
+      font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .suaSenhaFoiAtualizad {
+      flex-shrink: 0;
+      align-self: stretch;
+      text-align: center;
+      letter-spacing: 0;
+      color: var(--Claro-Textos-02, #7d8592);
+      font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+  }
+
+  .a04 {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    align-self: stretch;
+    justify-content: center;
+    column-gap: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    border-radius: 10px;
+    background: var(--Claro-Primaria-01, #1777cf);
+    padding: 14px 95px;
+    overflow: hidden;
+
+    .fazerLoginAgora {
+      flex-shrink: 0;
+      line-height: 19px;
+      letter-spacing: 0;
+      color: var(--Claro-Frente-01, #fcfcfc);
+      font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+}
+
+.a032 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--Claro-Frente-01, #fcfcfc);
+  padding-bottom: 24px;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+
+  .autoWrapper {
+    position: relative;
+    margin-top: -211px;
+    width: 422px;
+    height: 437px;
+
+    .rectangle1 {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      align-items: flex-start;
+      border-radius: 0px 0px 400px 400px;
+      background: #021632;
+      padding: 215px 43px 186px 44px;
+      width: 422px;
+      height: 437px;
+
+      .frame46 {
+        width: 335px;
+        height: 36px;
+      }
+    }
+
+    .aCone {
+      position: absolute;
+      bottom: -52px;
+      left: 156px;
+      border-radius: 99px;
+      width: 110px;
+      height: 110px;
+    }
+  }
+
+  .frame2131331290 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    justify-content: center;
+    margin: 74px 10px 0px;
+    padding-right: 15px;
+    padding-left: 15px;
+    height: 488px;
+    row-gap: 33px;
+
+    .a3 {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      align-items: flex-start;
+      align-self: stretch;
+      row-gap: 10px;
+
+      .a02 {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        align-self: stretch;
+        padding-bottom: 30px;
+
+        .porQualEmpresaVocDes {
+          flex-grow: 1;
+          text-align: center;
+          letter-spacing: 0;
+          color: var(--Claro-Textos-01, #3a3f51);
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+
+      .respostas {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        align-items: flex-start;
+        align-self: stretch;
+        justify-content: center;
+        background: var(--Claro-Frente-01, #fcfcfc);
+        padding-bottom: 10px;
+        row-gap: 15px;
+
+        .design {
+          flex-shrink: 0;
+          line-height: 19px;
+          letter-spacing: 0;
+          color: var(--Claro-Textos-01, #3a3f51);
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 16px;
+        }
+
+        .a01 {
+          flex-shrink: 0;
+          width: 20px;
+          height: 20px;
+          overflow: hidden;
+        }
+
+        .a012 {
+          display: inline-flex;
+          flex-shrink: 0;
+          align-items: center;
+          align-self: stretch;
+          column-gap: 10px;
+          margin-right: 128px;
+        }
+
+        .a {
+          flex-shrink: 0;
+          align-self: stretch;
+          width: 325px;
+          height: 2px;
+        }
+
+        .a022 {
+          display: inline-flex;
+          flex-shrink: 0;
+          align-items: center;
+          align-self: stretch;
+          column-gap: 10px;
+          margin-right: 131px;
+        }
+
+        .a03 {
+          display: inline-flex;
+          flex-shrink: 0;
+          align-items: center;
+          align-self: stretch;
+          column-gap: 10px;
+          margin-right: 120px;
+        }
+      }
+    }
+
+    .entrar3 {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: center;
+      align-self: stretch;
+      justify-content: flex-end;
+      row-gap: 10px;
+
+      .entrar2 {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        align-self: stretch;
+        justify-content: center;
+        column-gap: 10px;
+        border-radius: 10px;
+        background: var(--Claro-Primaria-01, #1777cf);
+        padding: 11px 143px;
+        height: 42px;
+
+        .entrar {
+          flex-shrink: 0;
+          line-height: 19px;
+          letter-spacing: 0;
+          color: var(--Claro-Frente-01, #fcfcfc);
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
