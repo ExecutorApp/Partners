@@ -7,9 +7,15 @@ import {
   StyleSheet,
   Animated,
   Dimensions,
+  Image,
 } from 'react-native';
 import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
 import { Svg, Path } from 'react-native-svg';
+import { useModal } from '../../context/ModalContext';
+import RegistrationStorage from '../../utils/registrationStorage';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList, ScreenNames } from '../../types/navigation';
 
 interface SideMenuScreenProps {
   isVisible: boolean;
@@ -94,6 +100,8 @@ const SairIcon = () => (
 
 const SideMenuScreen: React.FC<SideMenuScreenProps> = ({ isVisible, onClose }) => {
   const [slideAnim] = useState(new Animated.Value(-220));
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const { openModal } = useModal();
   
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
@@ -104,6 +112,9 @@ const SideMenuScreen: React.FC<SideMenuScreenProps> = ({ isVisible, onClose }) =
 
   // Mover antes de qualquer retorno condicional para manter a ordem dos Hooks
   const [activeItem, setActiveItem] = useState<string>('Clientes');
+  const [profileName, setProfileName] = useState<string>('Linkon Henrique');
+  const [profileWhatsapp, setProfileWhatsapp] = useState<string>('17 99246-0986');
+  const [profilePhotoUri, setProfilePhotoUri] = useState<string | null>(null);
 
   React.useEffect(() => {
     if (isVisible) {
@@ -120,6 +131,33 @@ const SideMenuScreen: React.FC<SideMenuScreenProps> = ({ isVisible, onClose }) =
       }).start();
     }
   }, [isVisible, slideAnim]);
+
+  const handleOpenPersonal = () => {
+    try {
+      openModal('registrationDataPersonal');
+    } finally {
+      onClose();
+    }
+  };
+
+  // Carregar nome, WhatsApp e foto salvos quando o menu abre
+  React.useEffect(() => {
+    const loadProfile = async () => {
+      try {
+        const data = await RegistrationStorage.getRegistrationData();
+        if (data?.personal) {
+          if (data.personal.name) setProfileName(data.personal.name);
+          if (data.personal.whatsapp) setProfileWhatsapp(data.personal.whatsapp);
+          setProfilePhotoUri(data.personal.photoUri ?? null);
+        }
+      } catch (error) {
+        console.error('Erro ao carregar dados do perfil:', error);
+      }
+    };
+    if (isVisible) {
+      loadProfile();
+    }
+  }, [isVisible]);
 
   if (!fontsLoaded) {
     return null;
@@ -159,18 +197,19 @@ const SideMenuScreen: React.FC<SideMenuScreenProps> = ({ isVisible, onClose }) =
           <TouchableOpacity activeOpacity={1} onPress={() => {}} style={styles.menuContent}>
             {/* Seção do usuário */}
             <View style={styles.userSection}>
-              <View style={styles.userInfo}>
+              <TouchableOpacity style={styles.userInfo} activeOpacity={0.7} onPress={handleOpenPersonal}>
                 <View style={styles.userAvatar}>
-                  <Svg width={50} height={50} viewBox="0 0 50 50" fill="none">
-                    <Path d="M17.5601 39.2L10.1004 43.2688C9.67131 43.5081 9.26982 43.7938 8.90317 44.1207C13.4037 47.9246 19.1081 50.008 25.001 50C31.0899 50 36.6684 47.8207 41.0054 44.2038C40.6038 43.8585 40.1623 43.5627 39.6902 43.3226L31.7022 39.3292C31.1962 39.0762 30.7706 38.6874 30.4732 38.2061C30.1757 37.7249 30.0182 37.1704 30.0181 36.6047V33.4707C30.2427 33.2151 30.4993 32.8868 30.7738 32.499C31.8517 30.9674 32.689 29.28 33.2569 27.4953C34.2815 27.1792 35.0363 26.233 35.0363 25.1085V21.7632C35.0363 21.0273 34.7089 20.3698 34.2004 19.9094V15.0736C34.2004 15.0736 35.1938 7.54811 25.0019 7.54811C14.81 7.54811 15.8034 15.0736 15.8034 15.0736V19.9094C15.5417 20.1424 15.332 20.4279 15.188 20.7473C15.044 21.0667 14.9689 21.4128 14.9676 21.7632V25.1085C14.9676 25.9896 15.4308 26.7651 16.1242 27.2132C16.9601 30.8519 19.1489 33.4707 19.1489 33.4707V36.5273C19.1481 37.0744 19.0003 37.6111 18.7208 38.0814C18.4412 38.5516 18.0403 38.938 17.5601 39.2Z" fill="#F4F4F4" />
-                    <Path d="M25.4283 0.00372279C11.623 -0.232126 0.239584 10.7679 0.0037254 24.5726C-0.130242 32.3999 3.35857 39.4348 8.9135 44.1131C9.27672 43.7894 9.6744 43.5066 10.0994 43.2697L17.5591 39.2009C18.0396 38.9387 18.4414 38.552 18.7208 38.0814C19.0001 37.6108 19.1468 37.0736 19.1469 36.5263V33.4697C19.1469 33.4697 16.9572 30.8509 16.1223 27.2122C15.7689 26.986 15.4779 26.6749 15.2758 26.3072C15.0737 25.9395 14.9671 25.527 14.9656 25.1075V21.7622C14.9656 21.0264 15.293 20.3688 15.8015 19.9084V15.0726C15.8015 15.0726 14.8081 7.54712 25 7.54712C35.1919 7.54712 34.1984 15.0726 34.1984 15.0726V19.9084C34.7079 20.3688 35.0343 21.0264 35.0343 21.7622V25.1075C35.0343 26.232 34.2796 27.1782 33.255 27.4943C32.6871 29.279 31.8497 30.9664 30.7719 32.498C30.4974 32.8858 30.2407 33.2141 30.0162 33.4697V36.6037C30.0162 37.7575 30.6681 38.8131 31.7002 39.3282L39.6883 43.3216C40.1588 43.5616 40.599 43.8568 40.9996 44.2009C46.3866 39.7084 49.867 32.9914 49.9962 25.4273C50.234 11.6226 39.2345 0.239572 25.4283 0.00372279Z" fill="#1777CF" />
-                  </Svg>
+                  <Image
+                    source={profilePhotoUri ? { uri: profilePhotoUri } : require('../../../assets/AvatarPlaceholder02.png')}
+                    style={styles.userAvatarImage}
+                    resizeMode="cover"
+                  />
                 </View>
                 <View style={styles.userText}>
-                  <Text style={styles.userName}>Linkon Henrique</Text>
-                  <Text style={styles.userPhone}>17 99246-0986</Text>
+                  <Text style={styles.userName} numberOfLines={1} ellipsizeMode="tail">{profileName}</Text>
+                  <Text style={styles.userPhone}>{profileWhatsapp}</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
               
               {/* Divisor */}
               <View style={styles.divider} />
@@ -183,7 +222,25 @@ const SideMenuScreen: React.FC<SideMenuScreenProps> = ({ isVisible, onClose }) =
             const color = isActive ? ACTIVE_COLOR : INACTIVE_COLOR;
             const coloredIcon = React.cloneElement(item.icon as React.ReactElement<any>, { color });
             return (
-              <TouchableOpacity key={index} style={styles.menuItem} onPress={() => setActiveItem(item.title)}>
+              <TouchableOpacity
+                key={index}
+                style={styles.menuItem}
+                onPress={() => {
+                  setActiveItem(item.title);
+                  if (item.title === 'Keymans') {
+                    navigation.navigate(ScreenNames.Keymans);
+                    onClose();
+                  }
+                  if (item.title === 'Agenda') {
+                    navigation.navigate(ScreenNames.Schedule);
+                    onClose();
+                  }
+                  if (item.title === 'Vendas') {
+                    navigation.navigate(ScreenNames.SalesHome);
+                    onClose();
+                  }
+                }}
+              >
                 {coloredIcon}
                 <Text style={[styles.menuItemText, { color }]}>
                   {item.title}
@@ -243,13 +300,26 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   userAvatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    width: 65,
+    height: 80,
+    borderRadius: 8,
     marginRight: 15,
+    overflow: 'hidden',
+    backgroundColor: '#F4F4F4',
+    borderWidth: 1,
+    borderColor: '#D8E0F0',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  userAvatarImage: {
+    width: 65,
+    height: 80,
+    borderRadius: 8,
   },
   userText: {
     flex: 1,
+    minWidth: 0,
+    overflow: 'hidden',
   },
   userName: {
     fontSize: 16,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -17,12 +17,15 @@ const holdingPatrimonialImage = require('../../../assets/00001.png');
 const ativosFundiariosImage = require('../../../assets/00002.png');
 const planejamentoTributarioImage = require('../../../assets/00003.png');
 import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList, ScreenNames } from '../../types/navigation';
 import Svg, { Path, Mask, Rect, Circle } from 'react-native-svg';
 import ModalOrderingProducts from './2.ModalOrderingProducts';
 import SideMenuScreen from '../5.Side Menu/1.SideMenuScreen';
 // Importar os novos componentes
 import Header from '../5.Side Menu/2.Header';
 import BottomMenu from '../5.Side Menu/3.BottomMenu';
+import { Layout } from '../../constants/theme';
 import { 
   useFonts,
   Inter_100Thin,
@@ -35,6 +38,8 @@ import {
   Inter_800ExtraBold,
   Inter_900Black
 } from '@expo-google-fonts/inter';
+import { useModal } from '../../context/ModalContext';
+import { checkIncompleteRegistration } from '../../utils/registrationGuard';
 
 // Componente do ícone de Comissão
 const ComissaoIcon = ({ size = 18, color = "#7D8592", strokeWidth = 0.15}) => (  
@@ -68,7 +73,7 @@ const TempoMedioIcon = ({ size = 18, color = "#7D8592" }) => (
 );
 
 const ProductListScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList, 'ProductList'>>();
   const [searchText, setSearchText] = useState('');
   const handleSearchTextChange = (text: string) => {
     let i = 0;
@@ -88,6 +93,18 @@ const ProductListScreen = () => {
   });
   const [sortBy, setSortBy] = useState('Mais recentes primeiro');
   const [sideMenuVisible, setSideMenuVisible] = useState(false);
+
+  const { openModal: openAppModal } = useModal();
+
+  useEffect(() => {
+    // Ao entrar na tela, verifica cadastro incompleto e abre modal global
+    (async () => {
+      const incomplete = await checkIncompleteRegistration();
+      if (incomplete) {
+        openAppModal('registerNow');
+      }
+    })();
+  }, []);
 
   // Funções para controlar o modal
   const openModal = () => setIsModalVisible(true);
@@ -194,9 +211,17 @@ const ProductListScreen = () => {
     return list;
   })();
 
-  const handleProductPress = (product: any) => {
-    navigation.navigate('PresentationScreen', { product });
+  const handleProductPress = async (product: any) => {
+    // Antes de navegar, verifica se o cadastro está completo
+    const incomplete = await checkIncompleteRegistration();
+    if (incomplete) {
+      openAppModal('registerNow');
+      return;
+    }
+    navigation.navigate(ScreenNames.PresentationScreen, { product });
   };
+
+  // Modal global gerencia conclusão de cadastro; sem necessidade de handler local
 
   const renderProductCard = (product: any) => (
     <TouchableOpacity 
@@ -250,7 +275,11 @@ const ProductListScreen = () => {
       />
 
       {/* Content */}
-      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={styles.content}
+        contentContainerStyle={{ paddingBottom: Layout.bottomMenuHeight }}
+        showsVerticalScrollIndicator={false}
+      >
         {/* Filters */}
          <View style={styles.filtersContainer}>
            <View style={styles.sortDropdown}>
@@ -305,8 +334,10 @@ const ProductListScreen = () => {
        {/* Menu Lateral */}
        <SideMenuScreen
          isVisible={sideMenuVisible}
-         onClose={() => setSideMenuVisible(false)}
-       />
+       onClose={() => setSideMenuVisible(false)}
+      />
+
+      {/* Modal de cadastro obrigatório: agora gerenciado globalmente pelo ModalRoot */}
     </SafeAreaView>
   );
 };
@@ -315,7 +346,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fcfcfc',
-    paddingBottom: 30,
   },
 
   content: {

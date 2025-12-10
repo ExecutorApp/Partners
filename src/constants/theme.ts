@@ -107,6 +107,8 @@ export const Layout = {
   topBarHeight: 36,
   screenWidth: 417,
   screenHeight: 812,
+  // Altura do menu inferior fixo (curva + conteúdo + botão central)
+  bottomMenuHeight: 110,
   
   // Touch targets mínimos
   minTouchTarget: 44,

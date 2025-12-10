@@ -1,17 +1,21 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList, ScreenNames } from '../../types/navigation';
 import Svg, { Path } from 'react-native-svg';
+import { Layout } from '../../constants/theme';
 
 type MenuKey = 'Products' | 'Clients' | 'Sales' | 'Schedule' | 'Commission';
 
 interface BottomMenuProps {
   activeScreen?: string; // pode receber nome do menu ou da rota
   currentScreen?: string; // compatibilidade com uso existente
+  fixedOnWeb?: boolean; // controla se o menu é fixo (overlay) ou relativo no Web
 }
 
-const BottomMenu: React.FC<BottomMenuProps> = ({ activeScreen = 'Products', currentScreen }) => {
-  const navigation = useNavigation();
+const BottomMenu: React.FC<BottomMenuProps> = ({ activeScreen = 'Products', currentScreen, fixedOnWeb = true }) => {
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const route = useRoute<any>();
 
   const screenMap: Record<string, MenuKey> = {
@@ -55,10 +59,11 @@ const BottomMenu: React.FC<BottomMenuProps> = ({ activeScreen = 'Products', curr
         // navigation.navigate('ClientsScreen');
         break;
       case 'Sales':
-        // navigation.navigate('SalesScreen');
+        navigation.navigate(ScreenNames.SalesHome);
         break;
       case 'Schedule':
-        // navigation.navigate('ScheduleScreen');
+        // Navega para a tela de Agenda
+        navigation.navigate(ScreenNames.Schedule);
         break;
       case 'Commission':
         // navigation.navigate('CommissionScreen');
@@ -72,10 +77,22 @@ const BottomMenu: React.FC<BottomMenuProps> = ({ activeScreen = 'Products', curr
     return activeMenu === screen ? '#1777CF' : '#3A3F51';
   };
 
+  const containerStyle = [
+    styles.bottomNavigation,
+    Platform.OS === 'web' ? ({ position: (fixedOnWeb ? ('fixed' as any) : 'relative') } as any) : null,
+  ];
+
   return (
-    <View style={styles.bottomNavigation}>
-      <View style={styles.bottomNavCurve} />
-      <View style={styles.bottomNavContent}>
+    <View
+      style={containerStyle}
+      // Permite que gestos de rolagem passem para a lista abaixo, mantendo cliques nos ícones
+      pointerEvents="box-none"
+      accessibilityRole={Platform.OS === 'web' ? 'tablist' : undefined}
+      accessibilityLabel="Menu inferior"
+    >
+      {/* Área decorativa não deve capturar toques */}
+      <View style={styles.bottomNavCurve} pointerEvents="none" />
+      <View style={styles.bottomNavContent} pointerEvents="box-none">
         <View style={styles.bottomNavSide}>
           {/* Ícone Produtos */}
           <TouchableOpacity onPress={() => handleNavigation('Products')}>
@@ -138,6 +155,14 @@ const BottomMenu: React.FC<BottomMenuProps> = ({ activeScreen = 'Products', curr
 const styles = StyleSheet.create({
   bottomNavigation: {
     backgroundColor: '#fcfcfc',
+    height: Layout.bottomMenuHeight,
+    width: '100%',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1000,
+    elevation: 1000,
   },
   bottomNavCurve: {
     height: 30,

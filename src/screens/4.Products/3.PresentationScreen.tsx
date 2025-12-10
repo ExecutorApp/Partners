@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, StatusBar, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
+import { RootStackParamList, ScreenNames } from '../../types/navigation';
+import { useFonts, Inter_100Thin, Inter_200ExtraLight, Inter_300Light, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold, Inter_800ExtraBold, Inter_900Black } from '@expo-google-fonts/inter';
 import Svg, { Path } from 'react-native-svg';
 import Header from '../5.Side Menu/2.Header';
 import BottomMenu from '../5.Side Menu/3.BottomMenu';
+import { Layout } from '../../constants/theme';
 
 // Interfaces
 interface ProductData {
@@ -31,7 +33,7 @@ const DollarIcon = () => (
 );
 
 const PresentationScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList, 'PresentationScreen'>>();
   const route = useRoute<PresentationScreenRouteProp>();
   const [sideMenuVisible, setSideMenuVisible] = useState(false);
   const [activeTab, setActiveTab] = useState('Apresentação');
@@ -68,6 +70,10 @@ const PresentationScreen = () => {
 
   const handleTabPress = (tab: string) => {
     setActiveTab(tab);
+    if (tab === 'Treinamento') {
+      // Navegar para a tela de treinamento
+      navigation.navigate(ScreenNames.TrainingScreen, { product });
+    }
   };
 
   return (
@@ -75,13 +81,25 @@ const PresentationScreen = () => {
       <StatusBar barStyle="dark-content" backgroundColor="#FCFCFC" />
       
       {/* Header */}
-      <Header 
-        title={product.title}
-        notificationCount={6}
-        onMenuPress={() => setSideMenuVisible(true)}
-        showBackButton={true}
-        onBackPress={handleBackPress}
-      />
+      <View style={styles.headerWrapper}>
+        <Header 
+          title={''}
+          notificationCount={6}
+          onMenuPress={() => setSideMenuVisible(true)}
+          showBackButton={false}
+        />
+        {/* Botão voltar customizado (SVG solicitado) */}
+        <TouchableOpacity
+          onPress={handleBackPress}
+          style={styles.customBackButton}
+          accessibilityRole="button"
+          accessibilityLabel="Voltar"
+        >
+          <Svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <Path d="M10 19L1 10M1 10L10 1M1 10L19 10" stroke="#1777CF" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+          </Svg>
+        </TouchableOpacity>
+      </View>
 
       {/* Content */}
       <View style={styles.content}>
@@ -111,13 +129,17 @@ const PresentationScreen = () => {
               onPress={() => handleTabPress('Materiais de apoio')}
             >
               <Text style={[styles.tabText, activeTab === 'Materiais de apoio' && styles.activeTabText]}>
-                Materiais de apoio
+                Material/Apoio
               </Text>
             </TouchableOpacity>
           </View>
 
           {/* Content List */}
-          <ScrollView style={styles.contentList} showsVerticalScrollIndicator={false}>
+          <ScrollView
+            style={styles.contentList}
+            contentContainerStyle={{ paddingBottom: Layout.bottomMenuHeight }}
+            showsVerticalScrollIndicator={false}
+          >
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Descrição:</Text>
               <Text style={styles.sectionContent}>
@@ -151,7 +173,7 @@ const PresentationScreen = () => {
             <View style={styles.divider} />
             
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Comissão</Text>
+              <Text style={styles.sectionTitle}>Comissão:</Text>
               <Text style={styles.sectionContent}>
                 - Comissão: 20% sobre o valor da venda{'\n'}
                 - Ticket médio: R$ 10.000{'\n'}
@@ -173,6 +195,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F4F4F4',
+  },
+  headerWrapper: {
+    position: 'relative',
+  },
+  customBackButton: {
+    position: 'absolute',
+    top: 50,
+    left: 16,
+    paddingVertical: 2,
+    paddingHorizontal: 6,
   },
   content: {
     flex: 1,
@@ -217,8 +249,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#1777CF',
   },
   tabText: {
-    fontSize: 12,
-    fontFamily: 'Inter_500Medium',
+    fontSize: 14,
+    fontFamily: 'Inter_400Regular',
     color: '#3A3F51',
     textAlign: 'center',
     lineHeight: 15,
@@ -231,7 +263,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   section: {
-    gap: 10,
+    gap: 5,
   },
   sectionTitle: {
     fontSize: 14,
@@ -244,13 +276,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Inter_400Regular',
     color: '#3A3F51',
-    lineHeight: 17,
+    lineHeight: 20,
   },
   divider: {
-    height: 2,
+    height: 0.1,
     backgroundColor: '#D8E0F0',
-    marginVertical: 15,
+    marginVertical: 20,
   },
+  // bottom menu é fixo; não precisamos de espaçador aqui
 });
 
 export default PresentationScreen;

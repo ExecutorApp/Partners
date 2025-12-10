@@ -8,9 +8,14 @@ interface HeaderProps {
   onMenuPress: () => void;
   showBackButton?: boolean;
   onBackPress?: () => void;
+  showAgendaIcons?: boolean;
+  onCalendarWeekPress?: () => void;
+  calendarWeekActive?: boolean;
+  onCalendarMonthPress?: () => void;
+  calendarMonthActive?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, notificationCount, onMenuPress, showBackButton = false, onBackPress }) => {
+const Header: React.FC<HeaderProps> = ({ title, notificationCount, onMenuPress, showBackButton = false, onBackPress, showAgendaIcons = false, onCalendarWeekPress, calendarWeekActive = false, onCalendarMonthPress, calendarMonthActive = false }) => {
   return (
     <View style={styles.header}>
       <StatusBar barStyle="dark-content" backgroundColor="#fcfcfc" />
@@ -34,7 +39,25 @@ const Header: React.FC<HeaderProps> = ({ title, notificationCount, onMenuPress, 
           <Text style={styles.headerTitle}>{title}</Text>
         </View>
         
-        <View style={styles.headerActions}>
+        <View style={[styles.headerActions, showAgendaIcons && styles.headerActionsWide]}>
+          {/* Ícones adicionais: exibidos somente quando showAgendaIcons=true */}
+          {showAgendaIcons && (
+            <>
+              <TouchableOpacity style={styles.calendarIconWrapper} onPress={onCalendarWeekPress} activeOpacity={0.7}>
+                <Svg width={26} height={27} viewBox="0 0 26 27" fill="none">
+                  <Path d="M24.2849 2.80841C24.2849 2.5376 24.0132 2.26673 23.7414 2.26673H18.5784V0.641781C18.5784 0.316781 18.361 0.100098 18.0349 0.100098C17.7088 0.100098 17.4914 0.316781 17.4914 0.641781V6.6001C17.4914 6.9251 17.7088 7.14178 18.0349 7.14178C18.361 7.14178 18.5784 6.9251 18.5784 6.6001V5.08341C19.2305 5.3001 19.6654 5.89591 19.6654 6.6001C19.6654 7.52097 18.9588 8.22515 18.0349 8.22515C17.111 8.22515 16.4044 7.52097 16.4044 6.6001C16.4044 6.22091 16.5674 5.84178 16.7848 5.51673C17.0022 5.30005 16.9479 4.97505 16.7305 4.75841C16.5131 4.54173 16.187 4.59591 15.9697 4.81255C15.5349 5.3001 15.3175 5.95005 15.3175 6.60005C15.3175 8.11673 16.5131 9.30836 18.0349 9.30836C19.5566 9.30836 20.7522 8.11673 20.7522 6.60005C20.7522 5.30005 19.8283 4.21668 18.5784 3.94586V3.3501H23.1979L23.4696 9.8501H1.73053L2.00225 3.3501H5.53489C5.86098 3.3501 6.07839 3.13341 6.07839 2.80841C6.07839 2.48341 5.86103 2.26673 5.53489 2.26673H1.45881C1.18709 2.26673 0.915314 2.48341 0.915314 2.80841L0.100098 23.1209C0.100098 24.746 1.45881 26.1001 3.08924 26.1001H22.111C22.9262 26.1001 23.6327 25.7751 24.2305 25.2334C24.774 24.6917 25.1001 23.9334 25.1001 23.1209L24.2849 2.80841ZM23.4697 24.4751C23.0892 24.8543 22.6544 25.0168 22.111 25.0168H3.08924C2.05667 25.0168 1.18709 24.1501 1.18709 23.121L1.67627 10.9335H23.524L24.0132 23.121C24.0132 23.6085 23.7957 24.096 23.4697 24.4751Z" fill={calendarWeekActive ? '#1777CF' : '#3A3F51'}/>
+                  <Path d="M7.16533 7.14178C7.49141 7.14178 7.70882 6.92515 7.70882 6.6001V5.08341C8.36094 5.3001 8.79581 5.89591 8.79581 6.6001C8.79581 7.52097 8.08927 8.22515 7.16533 8.22515C6.24138 8.22515 5.53484 7.52091 5.53484 6.6001C5.53484 6.22091 5.69789 5.84178 5.91529 5.51673C6.1327 5.30005 6.07834 4.97505 5.86098 4.75841C5.64357 4.54173 5.31749 4.59591 5.10013 4.81255C4.66536 5.3001 4.44796 5.95005 4.44796 6.60005C4.44796 8.11673 5.64357 9.30836 7.16533 9.30836C8.68708 9.30836 9.8827 8.11673 9.8827 6.60005C9.8827 5.30005 8.95881 4.21668 7.70882 3.94586V3.3501H16.4045C16.7306 3.3501 16.948 3.13341 16.948 2.80841C16.948 2.48341 16.7306 2.26673 16.4045 2.26673H7.70882V0.641781C7.70882 0.316781 7.49141 0.100098 7.16533 0.100098C6.83924 0.100098 6.62183 0.316781 6.62183 0.641781V6.6001C6.62183 6.9251 6.83919 7.14178 7.16533 7.14178ZM15.3175 13.6417H9.8827C9.55661 13.6417 9.3392 13.8584 9.3392 14.1834C9.3392 14.5084 9.55656 14.7251 9.8827 14.7251H14.3392L9.99133 21.496C9.82828 21.7668 9.8826 22.0918 10.1544 22.2543C10.2631 22.3084 10.3717 22.3626 10.4261 22.3626C10.5891 22.3626 10.8065 22.2543 10.8609 22.0918L15.7522 14.5085C15.8609 14.346 15.8609 14.1293 15.7522 13.9668C15.6979 13.7501 15.5349 13.6417 15.3175 13.6417Z" fill={calendarWeekActive ? '#1777CF' : '#3A3F51'}/>
+                </Svg>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.agendaIconWrapper} onPress={onCalendarMonthPress} activeOpacity={0.7}>
+                <Svg width={27} height={27} viewBox="0 0 27 27" fill="none">
+                  <Path d="M0.600098 10.8942H25.6001M6.8501 3.54127V0.600098M19.3501 3.54127V0.600098M3.7251 25.6001H22.4751C24.201 25.6001 25.6001 24.2833 25.6001 22.6589V6.48245C25.6001 4.85808 24.201 3.54127 22.4751 3.54127H3.7251C1.99921 3.54127 0.600098 4.85808 0.600098 6.48245V22.6589C0.600098 24.2833 1.99921 25.6001 3.7251 25.6001Z" stroke={calendarMonthActive ? '#1777CF' : '#3A3F51'} strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round"/>
+                </Svg>
+              </TouchableOpacity>
+            </>
+          )}
+
           <View style={styles.notificationContainer}>
             <View style={styles.bellIcon}>
               <Svg width={22} height={26} viewBox="0 0 22 26" fill="none">
@@ -115,12 +138,31 @@ const styles = StyleSheet.create({
   headerActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingRight: 16,
-    width: 71,
+    // Espaçamento horizontal uniforme entre todos os ícones
+    gap: 20,
+    paddingRight: 0,
+    width: 86,
+  },
+  headerActionsWide: {
+    width: 180,
+  },
+  calendarIconWrapper: {
+    width: 26,
+    height: 27,
+    // Espaçamento controlado pelo contêiner através de gap
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  agendaIconWrapper: {
+    width: 27,
+    height: 27,
+    // Espaçamento controlado pelo contêiner através de gap
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   notificationContainer: {
     position: 'relative',
-    marginLeft: -10,
+    // Removido deslocamento negativo para espaçamento uniforme
     width: 28,
     height: 28,
   },
@@ -152,10 +194,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   menuIcon: {
-    marginLeft: 16,
+    // Espaçamento controlado pelo contêiner através de gap
     width: 18,
     height: 31,
     paddingTop: 10,
+    marginRight: 15,
   },
 });
 
