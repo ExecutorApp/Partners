@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--Claro-Bordas-01, #d8e0f0);
+  border-radius: 12px;
+  padding-right: 29px;
+  padding-left: 29px;
+  width: 343px;
+  height: 472px;
+  row-gap: 15px;
+
+  .a01 {
+    flex-shrink: 0;
+    width: 202px;
+    height: 150px;
+    overflow: hidden;
+  }
+
+  .a02 {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    justify-content: center;
+    background: #00000000;
+    padding-right: 16px;
+    padding-left: 16px;
+
+    .nenhumAgendamentoEnc {
+      flex-shrink: 0;
+      align-self: stretch;
+      text-align: center;
+      letter-spacing: 0;
+      color: var(--Claro-Textos-01, #3a3f51);
+      font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+
+  .a03 {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    justify-content: center;
+    background: #00000000;
+    padding-right: 16px;
+    padding-left: 16px;
+
+    .paraCriarUmNovoAgend {
+      flex-shrink: 0;
+      align-self: stretch;
+      text-align: center;
+      letter-spacing: 0;
+      color: var(--Claro-Textos-02, #7d8592);
+      font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}

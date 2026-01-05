@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+}
+
+.a013 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  border-width: 0px 1px 0px 0px;
+  border-style: solid;
+  border-radius: 12px 16px 16px 12px;
+  border-color: var(--Claro-Bordas-01, #d8e0f0);
+  background: var(--Claro-Frente-01, #fcfcfc);
+  padding: 20px 9px 20px 10px;
+  width: 255px;
+  height: 652px;
+  row-gap: 15px;
+
+  .dashboard3 {
+    flex-shrink: 0;
+    line-height: 17px;
+    letter-spacing: 0;
+    color: var(--Claro-Textos-01, #3a3f51);
+    font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  .dashboard2 {
+    flex-shrink: 0;
+    line-height: 17px;
+    letter-spacing: 0;
+    color: var(--Claro-Textos-03, #91929e);
+    font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .a01 {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--Claro-Bordas-01, #d8e0f0);
+    border-radius: 4px;
+    background: var(--Claro-Fundo-01, #f4f4f4);
+    width: 35px;
+    height: 40px;
+    row-gap: 5px;
+
+    .dashboard {
+      flex-shrink: 0;
+      line-height: 17px;
+      letter-spacing: 0;
+      color: var(--Claro-Textos-01, #3a3f51);
+      font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  .fluxoCompleto {
+    flex-shrink: 0;
+    align-self: stretch;
+    line-height: 22px;
+    letter-spacing: 0;
+    color: var(--Claro-Textos-01, #3a3f51);
+    font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .a {
+    flex-shrink: 0;
+    align-self: stretch;
+    width: 235px;
+    height: 2px;
+  }
+
+  .a012 {
+    display: flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    column-gap: 10px;
+
+    .a11 {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: flex-start;
+      justify-content: center;
+      border-radius: 10px;
+      row-gap: 5px;
+    }
+  }
+
+  .a04 {
+    display: flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    column-gap: 10px;
+
+    .a112 {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: flex-start;
+      justify-content: center;
+      border-radius: 10px;
+      row-gap: 5px;
+
+      .dashboard4 {
+        flex-shrink: 0;
+        line-height: 17px;
+        letter-spacing: 0;
+        color: var(--Claro-Textos-02, #7d8592);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .a05 {
+    display: flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    column-gap: 10px;
+
+    .a113 {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: flex-start;
+      justify-content: center;
+      border-radius: 10px;
+      row-gap: 5px;
+
+      .dashboard5 {
+        flex-shrink: 0;
+        width: 71px;
+        letter-spacing: 0;
+        color: var(--Claro-Textos-01, #3a3f51);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .linhaTracejada {
+    position: absolute;
+    top: 114px;
+    left: 28px;
+    flex-shrink: 0;
+    width: 2px;
+    height: 32px;
+  }
+
+  .linhaTracejada2 {
+    position: absolute;
+    top: 186px;
+    left: 28px;
+    flex-shrink: 0;
+    z-index: 1;
+    width: 2px;
+    height: 32px;
+  }
+
+  .linhaTracejada3 {
+    position: absolute;
+    top: 258px;
+    left: 28px;
+    flex-shrink: 0;
+    z-index: 2;
+    width: 2px;
+    height: 32px;
+  }
+
+  .linhaTracejada4 {
+    position: absolute;
+    top: 330px;
+    left: 28px;
+    flex-shrink: 0;
+    z-index: 3;
+    width: 2px;
+    height: 32px;
+  }
+
+  .linhaTracejada5 {
+    position: absolute;
+    top: 402px;
+    left: 28px;
+    flex-shrink: 0;
+    z-index: 4;
+    width: 2px;
+    height: 32px;
+  }
+
+  .linhaTracejada6 {
+    position: absolute;
+    top: 474px;
+    left: 28px;
+    flex-shrink: 0;
+    z-index: 5;
+    width: 2px;
+    height: 32px;
+  }
+}

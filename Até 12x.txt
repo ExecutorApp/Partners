@@ -1,0 +1,276 @@
+<div style={{alignSelf: 'stretch', overflow: 'hidden', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 15, display: 'inline-flex'}}>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper style={{position: 'relative'}}>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2018)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#1777CF"/>
+      <rect x="5" y="5" width="10" height="10" rx="5" fill="#1777CF"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2018">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>1x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 450,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2028)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2028">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>2x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 450,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2038)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2038">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>3x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 450,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2048)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2048">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>4x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 450,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2058)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2058">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>5x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 450,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2068)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2068">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>6x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 450,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2078)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2078">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>7x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 460,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2088)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2088">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>8x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 470,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2098)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2098">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>9x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 480,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2108)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2108">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>10x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 490,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2118)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2118">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>11x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 500,00</div>
+    </div>
+  </div>
+  <div style={{alignSelf: 'stretch', height: 2, paddingTop: 1, paddingBottom: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
+    <div style={{alignSelf: 'stretch', height: 0, outline: '0.50px #D8E0F0 solid', outlineOffset: '-0.25px'}}></div>
+  </div>
+  <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'center', gap: 10, display: 'inline-flex'}}>
+    <div data-svg-wrapper>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_883_2128)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#7D8592" stroke="#FCFCFC"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_883_2128">
+      <rect width="20" height="20" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div style={{flex: '1 1 0', justifyContent: 'flex-start', alignItems: 'center', display: 'flex'}}>
+      <div style={{flex: '1 1 0', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#3A3F51', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>12x</div>
+    </div>
+    <div style={{flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', display: 'inline-flex'}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#91929E', fontSize: 14, fontFamily: 'Inter', fontWeight: '500', wordWrap: 'break-word'}}>R$ 510,00</div>
+    </div>
+  </div>
+</div>

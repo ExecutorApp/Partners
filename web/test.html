@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste de Vídeo</title>
+</head>
+<body>
+    <h1>Teste de Vídeo HTML5</h1>
+    <video width="400" height="300" controls>
+        <source src="/Video01.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo HTML5.
+    </video>
+    
+    <script>
+        console.log('Testando carregamento de vídeo...');
+        const video = document.querySelector('video');
+        video.addEventListener('loadeddata', () => {
+            console.log('Vídeo carregado com sucesso!');
+        });
+        video.addEventListener('error', (e) => {
+            console.error('Erro ao carregar vídeo:', e);
+        });
+    </script>
+</body>
+</html>

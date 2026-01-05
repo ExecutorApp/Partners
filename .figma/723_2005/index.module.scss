@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+}
+
+.a200 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 18px;
+  background: var(--Claro-Frente-01, #fcfcfc);
+  padding: 30px 15px 20px;
+  width: 300px;
+  height: 517px;
+  overflow: hidden;
+  row-gap: 25px;
+
+  .horaInicial {
+    flex-shrink: 0;
+    align-self: stretch;
+    text-align: center;
+    line-height: 22px;
+    letter-spacing: 0;
+    color: var(--Claro-Textos-01, #3a3f51);
+    font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .a02 {
+    flex-shrink: 0;
+    border-radius: 12px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .a032 {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    padding-right: 20px;
+    padding-left: 20px;
+    row-gap: 10px;
+
+    .a3 {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      justify-content: center;
+      column-gap: 24px;
+
+      .a01 {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        column-gap: 10px;
+        padding-left: 42px;
+
+        .horas {
+          display: flex;
+          flex-grow: 1;
+          align-items: center;
+          justify-content: center;
+          width: 61px;
+          height: 24px;
+          letter-spacing: 0;
+          color: var(--Claro-Texto2-04, #959da6);
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+
+      .a022 {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        column-gap: 10px;
+        padding-right: 31px;
+
+        .minutos {
+          display: flex;
+          flex-grow: 1;
+          align-items: center;
+          justify-content: center;
+          width: 72px;
+          height: 24px;
+          letter-spacing: 0;
+          color: var(--Claro-Texto2-04, #959da6);
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .hora {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      row-gap: 15px;
+
+      .a012 {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        column-gap: 24px;
+        width: 155px;
+
+        .a00 {
+          display: flex;
+          flex-grow: 1;
+          align-items: center;
+          justify-content: center;
+          width: 66px;
+          height: 24px;
+          letter-spacing: 0;
+          color: var(--Claro-Texto2-04, #959da6);
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+
+      .a {
+        flex-shrink: 0;
+        width: 155px;
+        height: 2px;
+      }
+
+      .a03 {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        column-gap: 8px;
+        width: 154px;
+
+        .a023 {
+          display: flex;
+          flex-grow: 1;
+          align-items: center;
+          justify-content: center;
+          width: 65px;
+          height: 24px;
+          line-height: 24px;
+          letter-spacing: 0;
+          color: var(--Claro-Primaria-01, #1777cf);
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 20px;
+          font-weight: 700;
+        }
+
+        .a2 {
+          display: flex;
+          flex-shrink: 0;
+          align-items: center;
+          justify-content: center;
+          width: 8px;
+          height: 24px;
+          letter-spacing: 0;
+          color: var(--Claro-Primaria-01, #1777cf);
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .a6 {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    align-self: stretch;
+    column-gap: 10px;
+
+    .a4 {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      column-gap: 10px;
+      border: 1px solid var(--Claro-Bordas-01, #d8e0f0);
+      border-radius: 10px;
+      background: var(--Claro-Fundo-01, #f4f4f4);
+      padding: 11px 15px;
+      height: 42px;
+
+      .cancelar {
+        flex-shrink: 0;
+        line-height: 17px;
+        letter-spacing: 0;
+        color: #3a3f51;
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+
+    .a32 {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      column-gap: 10px;
+      border-radius: 10px;
+      background: var(--Claro-Primaria-01, #1777cf);
+      padding: 11px 14px;
+      height: 42px;
+
+      .confirmar {
+        flex-shrink: 0;
+        line-height: 17px;
+        letter-spacing: 0;
+        color: var(--Claro-Frente-01, #fcfcfc);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+  }
+}

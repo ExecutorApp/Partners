@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+.a272 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  background: var(--Claro-Frente-01, #fcfcfc);
+  padding: 15px;
+  width: 340px;
+  height: 880px;
+
+  .a01 {
+    display: flex;
+    align-items: center;
+    column-gap: 13px;
+    width: 310px;
+
+    .cartODeCrDito {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      width: 259px;
+      height: 24px;
+      letter-spacing: 0;
+      color: var(--Claro-Textos-01, #3a3f51);
+      font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .a02 {
+      flex-shrink: 0;
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  .a022 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    margin-top: 30px;
+    width: 310px;
+
+    .aCone {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      column-gap: 16px;
+      border-radius: 9999px;
+      background: var(--Claro-Primaria-01, #1777cf);
+      padding: 16px;
+      width: 80px;
+      height: 80px;
+
+      .credit {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .a03 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    margin-top: 40px;
+    overflow: hidden;
+    row-gap: 15px;
+
+    .a013 {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      column-gap: 10px;
+
+      .a012 {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        overflow: hidden;
+      }
+
+      .nome {
+        flex-grow: 1;
+        letter-spacing: 0;
+        color: var(--Claro-Textos-01, #3a3f51);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .nome2 {
+        flex-shrink: 0;
+        line-height: 17px;
+        letter-spacing: 0;
+        color: var(--Claro-Textos-03, #91929e);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    .a {
+      flex-shrink: 0;
+      align-self: stretch;
+      width: 310px;
+      height: 2px;
+    }
+  }
+
+  .a04 {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 15px;
+    margin-top: 30px;
+    width: 310px;
+
+    .a014 {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      column-gap: 10px;
+      border: 1px solid var(--Claro-Bordas-01, #d8e0f0);
+      border-radius: 6px;
+      background: var(--Claro-Fundo-01, #f4f4f4);
+      padding: 14px 9px;
+      width: 149px;
+      height: 40px;
+
+      .salvar {
+        flex-shrink: 0;
+        line-height: 17px;
+        letter-spacing: 0;
+        color: var(--Claro-Textos-01, #3a3f51);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    .a023 {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      column-gap: 10px;
+      border: 1px solid var(--Claro-Bordas-01, #d8e0f0);
+      border-radius: 6px;
+      background: var(--Claro-Primaria-01, #1777cf);
+      padding: 14px 9px;
+      width: 147px;
+      height: 40px;
+
+      .salvar2 {
+        flex-shrink: 0;
+        line-height: 17px;
+        letter-spacing: 0;
+        color: var(--Claro-Frente-01, #fcfcfc);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+}

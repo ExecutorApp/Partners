@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Visualizador DOCX</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        background: #FFFFFF;
+        overflow: hidden;
+      }
+      #root { height: 100%; display: flex; flex-direction: column; }
+      /* viewer ocupa toda a tela; sem margens/padding; centraliza o conteúdo quando necessário */
+      .viewer { flex: 1; overflow: hidden; -webkit-overflow-scrolling: touch; padding: 0; background: transparent; position: relative; display: flex; align-items: center; justify-content: center; }
+      .container { width: 100%; height: 100%; margin: 0; background: transparent; border: none; border-radius: 0; box-shadow: none; padding: 0; box-sizing: border-box; position: relative; }
+      .container > *:first-child { margin-top: 0 !important; }
+      .docx { background: transparent !important; filter: none !important; opacity: 1 !important; margin: 0 !important; padding: 0 !important; text-align: left !important; }
+      /* Zera margens externas e sombra de wrappers e páginas internas */
+      .docx > * { margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; background: transparent !important; display: block !important; }
+      .docx .docx-page, .docx .page, .docx section, .docx article { box-shadow: none !important; margin: 0 !important; left: 0 !important; right: auto !important; background: #FFFFFF !important; padding: 0 !important; }
+      /* Evita cortes inadequados de elementos blocos comuns */
+      .docx table, .docx img, .docx figure, .docx .table { break-inside: avoid !important; page-break-inside: avoid !important; }
+      .docx p, .docx h1, .docx h2, .docx h3, .docx h4, .docx h5, .docx h6, .docx li { orphans: 2; widows: 2; page-break-inside: auto; }
+      /* Mantém blocos críticos inteiros quando possível (aproxima keep-with-next/keep-lines) */
+      .docx .docx-table, .docx .docx-list, .docx .docx-image, .docx .docx-paragraph.keep, .docx .docx-heading { break-inside: avoid !important; page-break-inside: avoid !important; }
+      .docx-fit { transform-origin: top left; position: absolute; top: 0; left: 0; }
+      .muted { color: #91929E; font-family: Inter, Arial, sans-serif; }
+      .toolbar { position: fixed; top: 8px; left: 8px; z-index: 10; display: inline-flex; gap: 8px; padding: 6px 8px; background: rgba(255,255,255,0.9); border: 1px solid #E0E0E6; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); font-family: Inter, Arial, sans-serif; }
+      .toolbar label { font-size: 12px; color: #444; }
+      .toolbar select { font-size: 12px; }
+    </style>
+    <!-- Biblioteca cliente para renderização de .docx -->
+    <!-- JSZip é dependência de docx-preview para ler o pacote OpenXML -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://unpkg.com/docx-preview@0.3.5/dist/docx-preview.js"></script>
+  </head>
+  <body>
+    <div class="toolbar">
+      <label>Arquivo DOCX: <input id="docx-input" type="file" accept=".docx" /></label>
+      <label>Fit:
+        <select id="fit-select">
+          <option value="cover" selected>cover</option>
+          <option value="fill">fill</option>
+          <option value="center">center</option>
+        </select>
+      </label>
+    </div>
+    <div id="root">
+      <div class="viewer">
+        <div id="container" class="container">
+          <p class="muted">Carregando documento…</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Leitura de parâmetro file=? contendo URL/Blob
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get('file');
+
+      const container = document.getElementById('container');
+      const viewerEl = document.querySelector('.viewer');
+      let fitMode = (params.get('fit') || 'cover').toLowerCase(); // 'fill' | 'center' | 'cover'
+      const inputEl = document.getElementById('docx-input');
+      const fitSelectEl = document.getElementById('fit-select');
+      if (fitSelectEl) {
+        fitSelectEl.value = fitMode;
+        fitSelectEl.addEventListener('change', (e) => { fitMode = e.target.value; setTimeout(() => fitToViewport(), 10); });
+      }
+      if (!file) {
+        container.innerHTML = '<p class="muted">Sem arquivo. Selecione um DOCX acima.</p>';
+      } else {
+        const isHttp = /^https?:\/\//i.test(file);
+        const tryFetch = (url) => fetch(url).then(res => {
+          if (!res.ok) throw new Error('HTTP '+res.status);
+          return res.blob();
+        });
+        const normalizeDocxLayout = () => {
+          try {
+            const root = (container.querySelector('.docx') || container.firstElementChild);
+            if (!root) return;
+            // Remove sombras e margens dos wrappers/páginas que o docx-preview cria
+            const pages = root.querySelectorAll('.docx-page, .page, section, article');
+            pages.forEach(p => {
+              p.style.boxShadow = 'none';
+              p.style.margin = '0';
+              p.style.left = '0';
+              p.style.right = 'auto';
+              p.style.background = '#FFFFFF';
+              p.style.padding = '0';
+            });
+            // Normalizações adicionais em listas/tabelas
+            const tables = root.querySelectorAll('table');
+            tables.forEach(t => { t.style.pageBreakInside = 'avoid'; t.style.breakInside = 'avoid'; });
+            const lists = root.querySelectorAll('ul,ol');
+            lists.forEach(l => { l.style.pageBreakInside = 'avoid'; l.style.breakInside = 'avoid'; });
+          } catch (e) {
+            console.warn('[docx-viewer] normalizeDocxLayout failed', e);
+          }
+        };
+        const applyWordBusinessRules = () => {
+          try {
+            const root = (container.querySelector('.docx') || container.firstElementChild);
+            if (!root) return;
+            // Aproximações para regras do Word:
+            // - keep-with-next: headings mantêm próximo bloco
+            // - keep-lines: evita quebrar parágrafo no meio quando possível
+            const headings = root.querySelectorAll('h1,h2,h3,h4,h5,h6');
+            headings.forEach(h => {
+              h.style.pageBreakAfter = 'avoid';
+              const next = h.nextElementSibling;
+              if (next) next.style.pageBreakBefore = 'avoid';
+            });
+            const paragraphs = root.querySelectorAll('p');
+            paragraphs.forEach(p => {
+              // se parágrafo for muito curto (ex: título/label), evite órfãs/viúvas
+              p.style.orphans = '2';
+              p.style.widows = '2';
+            });
+            // Tabelas/figuras não devem ser partidas
+            const figures = root.querySelectorAll('figure, img');
+            figures.forEach(f => { f.style.pageBreakInside = 'avoid'; f.style.breakInside = 'avoid'; });
+          } catch (e) {
+            console.warn('[docx-viewer] applyWordBusinessRules failed', e);
+          }
+        };
+        const fitToViewport = () => {
+          try {
+            const viewer = viewerEl;
+            const root = (container.querySelector('.docx') || container.firstElementChild);
+            if (!viewer || !root) return;
+            root.classList.add('docx-fit');
+            const docW = (root.scrollWidth || root.offsetWidth || 800);
+            const docH = (root.scrollHeight || root.offsetHeight || 1123);
+            const availW = Math.max(0, viewer.clientWidth);
+            const availH = Math.max(0, viewer.clientHeight);
+            let scaleW = availW / docW;
+            let scaleH = availH / docH;
+            if (!isFinite(scaleW) || scaleW <= 0) scaleW = 1;
+            if (!isFinite(scaleH) || scaleH <= 0) scaleH = 1;
+            // fill: usa largura; center: centraliza sem preencher; cover: preenche ambos (sem espaços nas extremidades)
+            let scale = scaleW;
+            if (fitMode === 'center') {
+              scale = Math.min(scaleW, scaleH);
+            } else if (fitMode === 'cover') {
+              scale = Math.max(scaleW, scaleH);
+            }
+            const scaledW = Math.ceil(docW * scale);
+            const scaledH = Math.ceil(docH * scale);
+            let tx = 0, ty = 0;
+            // Centraliza quando houver espaço sobrando
+            const freeW = Math.max(0, availW - scaledW);
+            const freeH = Math.max(0, availH - scaledH);
+            tx = Math.floor(freeW / 2);
+            ty = Math.floor(freeH / 2);
+            root.style.transform = 'translate('+tx+'px,'+ty+'px) scale('+scale+')';
+            // container iguala ao viewer para remover espaços externos
+            container.style.width = availW + 'px';
+            container.style.height = availH + 'px';
+            container.style.minHeight = availH + 'px';
+          } catch (e) {
+            console.warn('[docx-viewer] fitToViewport failed', e);
+          }
+        };
+        let observerAttached = false;
+        const attachObserver = () => {
+          try {
+            const root = (container.querySelector('.docx') || container.firstElementChild);
+            if (!root || observerAttached || !(window && 'ResizeObserver' in window)) return;
+            const ro = new ResizeObserver(() => { fitToViewport(); });
+            ro.observe(root);
+            observerAttached = true;
+          } catch (e) { /* noop */ }
+        };
+        const renderBlob = (blob) => {
+          const opts = {
+            // Segue regras do Word: quebrar em pontos explícitos e respeitar cabeçalhos/rodapés/notas
+            breakPages: true,
+            ignoreLastRenderedPageBreak: false,
+            renderHeaders: true,
+            renderFooters: true,
+            renderFootnotes: true,
+            renderEndnotes: true,
+          };
+          // API: renderAsync(document, bodyContainer, styleContainer, options)
+          return docx.renderAsync(blob, container, null, opts).then(() => {
+            setTimeout(() => { normalizeDocxLayout(); applyWordBusinessRules(); fitToViewport(); attachObserver(); }, 60);
+            if (document && document.fonts && document.fonts.ready) {
+              document.fonts.ready.then(() => { normalizeDocxLayout(); applyWordBusinessRules(); fitToViewport(); }).catch(() => {});
+            }
+          });
+        };
+        // Suporte a upload local via input <file>
+        const handleFile = (f) => {
+          if (!f) return;
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            const ab = ev.target.result;
+            const bytes = new Uint8Array(ab);
+            const blob = new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+            renderBlob(blob).catch(err => {
+              console.error('[docx-viewer] render (local) falhou', err);
+              container.innerHTML = '<p class="muted">Falha ao carregar o documento.</p>';
+            });
+          };
+          reader.readAsArrayBuffer(f);
+        };
+        if (inputEl) { inputEl.addEventListener('change', (e) => { const f = e.target.files && e.target.files[0]; handleFile(f); }); }
+
+        // Tenta carregar diretamente; em caso de CORS, usar proxy simples
+        tryFetch(file)
+          .then(renderBlob)
+          .catch(err => {
+            console.warn('[docx-viewer] fetch direto falhou, tentando proxy CORS…', err);
+            if (!isHttp) {
+              container.innerHTML = '<p class="muted">Falha ao carregar o documento.</p>';
+              return;
+            }
+            const proxied = 'https://cors.isomorphic-git.org/'+file;
+            tryFetch(proxied)
+              .then(renderBlob)
+              .catch(err2 => {
+                console.error('[docx-viewer] proxy também falhou', err2);
+                container.innerHTML = '<p class="muted">Falha ao carregar o documento.</p>';
+              });
+          });
+        window.addEventListener('resize', () => { fitToViewport(); });
+      }
+    </script>
+  </body>
+</html>

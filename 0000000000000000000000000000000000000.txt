@@ -1,0 +1,45 @@
+Excelente!
+Agora dentro da pasta "9.Agenda" crie o arquivo "21.SchedulingDetails-Content.tsx", todas as informações da aba "conteudo" tem que ficar nesse arquivo. 
+
+1° Tela: 
+Nome do arquivo "18.AlternativeScreen.tsx":
+- Tela original do Figma:  
+- Use os ícones originais do Figma que estão no arquivo "Ícones 10.txt".
+
+2° Tela:
+Nome do arquivo "19.SchedulingDetails-Main.tsx":
+- Importe a tela do Figma 
+- A foto "06-Foto.png" esta na pasta "Assets". 
+- Use os ícones originais do Figma que estão no arquivo "Ícones 10.txt".
+
+3° Tela:
+Nome do arquivo "20.SchedulingDetails-PersonalData.tsx":
+- Importe a tela do arquivo "5.NewAppointment-CreateContact.tsx" porém a nova tela "20.SchedulingDetails-PersonalData.tsx" vai ser só de exibição, por isso deixe todos os campos apenas para visualização!
+- Use os ícones originais do Figma que estão no arquivo "Ícones 10.txt".
+
+4° Tela:
+Nome do arquivo "21.SchedulingDetails-Content.tsx":
+- Tela original do Figma:  
+- Use os ícones originais do Figma que estão no arquivo "Ícones 10.txt".
+
+# Fluxo: 
+1. A tela inicial do arquivo "1.CalendarHomeScreen.tsx" é a lista de cards, ao clicar no botão de alternar, do lado esquerdo do botão "Novo agendamento" deve ativar o arquivo "18.AlternativeScreen.tsx" trocando os cards atual de agendamentos pelos novos cards de agendamento.
+
+2. Ao clicar em qualquer formato de carde de agendamento, seja da versão antiga com foto ou da versão nova sem foto, deve abrir o arquivo "19.SchedulingDetails-Main.tsx" ocupando a tela inteira com uma seta de voltar para a tela inicial. 
+- Dentro desta nova tela, tem um botão de alternar em cima com três abas:
+- Principal "19.SchedulingDetails-Main.tsx"
+- Dados pessoais "20.SchedulingDetails-PersonalData.tsx"
+- Conteúdo "21.SchedulingDetails-Content.tsx"
+O usuário pode alternar entre essas opções.
+
+# Regras:
+- Responda sempre em português Brasil.
+- O código deve compilar sem erros.
+- Use a imagem em anexo como referencia visual.
+
+
+
+Nunca pensei, que o tempo, fosse levar
+Lembranças de um momento que já não há 
+E agora que já não há tempo, pra te levar, daqui
+A vida pede um momento, pra encontrar, o fim

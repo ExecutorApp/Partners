@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+
+.a015 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 5px;
+  width: 310px;
+  height: 428px;
+  overflow: hidden;
+  row-gap: 15px;
+
+  .nome {
+    flex-shrink: 0;
+    align-self: stretch;
+    letter-spacing: 0;
+    color: var(--Claro-Textos-01, #3a3f51);
+    font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .a013 {
+    display: flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    column-gap: 10px;
+
+    .a01 {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      overflow: hidden;
+    }
+
+    .a012 {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: flex-start;
+      align-self: stretch;
+      justify-content: center;
+      row-gap: 5px;
+
+      .nome2 {
+        flex-shrink: 0;
+        align-self: stretch;
+        letter-spacing: 0;
+        color: var(--Claro-Textos-02, #7d8592);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .a {
+    flex-shrink: 0;
+    align-self: stretch;
+    width: 310px;
+    height: 2px;
+  }
+
+  .a02 {
+    display: flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    align-self: stretch;
+    column-gap: 10px;
+
+    .border {
+      position: relative;
+      flex-shrink: 0;
+      background: var(--Claro-Primaria-01);
+      width: 20px;
+      height: 20px;
+      overflow: hidden;
+      background-image: url(../image/mhz7w12e-u53f2tj.svg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      .a2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        overflow: hidden;
+      }
+    }
+
+    .a014 {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: flex-start;
+      align-self: stretch;
+      justify-content: center;
+      row-gap: 5px;
+
+      .nome3 {
+        flex-shrink: 0;
+        align-self: stretch;
+        line-height: 17px;
+        letter-spacing: 0;
+        color: var(--Claro-Textos-02, #7d8592);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+    }
+  }
+}
